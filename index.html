@@ -3,11 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Basic Web Application</title>
+    <title>Banking Web Application</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Welcome to My Basic Web Application</h1>
-    <p>This is a simple HTML file for the CI/CD assignment.</p>
-    <h3>Changes made</h3>
+    <div class="container">
+        <!-- Side Navigation Bar -->
+        <div class="sidebar">
+            <h2>Net Banking</h2>
+            <div id="dashboard" class="nav-item active">Dashboard</div>
+            
+            <!-- Collapsible Current Account Section -->
+            <div class="nav-item collapsible current-account">Current Account</div>
+            <div class="submenu current-account" style="display: none;">
+                <div class="nav-item" data-section="acc-details">Account Details</div>
+                <div class="nav-item" data-section="transfer">Transfer</div>
+                <div class="nav-item" data-section="transactions">Transactions</div>
+                <div class="nav-item" data-section="statements">Statements</div>
+            </div>
+        
+            <!-- Collapsible Savings Account Section -->
+            <div class="nav-item collapsible savings-account">Savings Account</div>
+            <div class="submenu savings-account" style="display: none;">
+                <div class="nav-item" data-section="savings-acc-details">Account Details</div>
+                <div class="nav-item" data-section="savings-transfer">Transfer</div>
+                <div class="nav-item" data-section="savings-transactions">Transactions</div>
+                <div class="nav-item" data-section="savings-statements">Statements</div>
+            </div>
+            <div class="nav-item" data-section="faq" id="faq-link">FAQ</div> <!-- FAQ Link -->
+        </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div id="content-dashboard" class="content-section active">
+                <h1>Dashboard</h1>
+                <h2>Hello Pranay!!</h2>
+                <div class="balance-container">
+                    <div class="balance">
+                        <p>Total Balance</p>
+                        <h3>$7,527</h3>
+                    </div>
+                
+                    <div class="balance">
+                        <p>Savings</p>
+                        <h3>$3,200</h3>
+                    </div>
+                </div>
+                
+                <div class="main-row">
+                    <div class="recent-container">
+                        <h2>Recent Transactions</h2>
+                        <div class="recent">
+                            <ul>
+                                <li>
+                                    <span class="arrow">↑</span>
+                                    <div class="transaction-container debit">
+                                        <span class="transaction">McDonald's <span class="amount">-$100</span></span>
+                                        <div class="datetime">16 Oct, 2024</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="arrow">↓</span>
+                                    <div class="transaction-container credit">
+                                        <span class="transaction"> Forex Transfer <span class="amount">+$2000</span></span>
+                                        <div class="datetime">10 Oct, 2024</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="arrow">↓</span>
+                                    <div class="transaction-container debit">
+                                        <span class="transaction">CTA Ventra <span class="amount">-$75</span></span>
+                                        <div class="datetime">30 Sept, 2024</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span class="arrow">↑</span>
+                                    <div class="transaction-container debit">
+                                        <span class="transaction">WiFi bill <span class="amount">-$90</span></span>
+                                        <div class="datetime">21 Sept, 2024</div>
+                                    </div>
+                                </li>
+                            </ul>
+                            
+                            
+                        </div>
+                    </div>
+                
+                    <div class="cards-container">
+                        <h2>Available Cards</h2>
+                        <div class="cards">
+                            <img src="https://static.wixstatic.com/media/90077f_5cb7a16de1644626ba666ba509a44be9~mv2.webp/v1/fill/w_750,h_500,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/90077f_5cb7a16de1644626ba666ba509a44be9~mv2.webp" alt="Debit Card">
+                        </div>
+                    </div>
+                    
+                    <div class="quick-container">
+                        <h2>Quick Links</h2>
+                        <div class="quick">
+                            <ul>
+                                <li><a href="#">Pay Bills</a></li>
+                                <li><a href="#">Transfer Funds</a></li>
+                                <li><a href="#">Statements and Documents</a></li>
+                                <li><a href="#">Apply Credit Card</a></li>
+                                <li><a href="#">Schedule a meeting</a></li>
+                                <li><a href="#">Customer Support</a></li>
+                                <li><a href="#">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <!-- Account Details Section -->
+            <div id="content-acc-details" class="content-section">
+                <h1>Account Details</h1>
+                <div class="balance">
+                    <p>Available Balance</p>
+                    <h3>$7,527</h3>                    
+                </div>
+                <p>Account Number: 123456789</p>
+                <p>Account Holder Name: Pranay Kumar</p>
+                <p>Account Type: current</p>
+                <p>Routing number: 000727811 </p>
+                <p>Account Holder Address: 2801 S king Dr, Chicago, IL 60616</p>
+                <p>Branch Address: 33 N Dearborn St, Chicago, IL 60602</p>
+                <p>Last Statement date: Sep 19, 2024</p>
+
+            </div>
+
+            <!-- Transfer Section -->
+            <div id="content-transfer" class="content-section">
+                <h1>Transfer Money</h1>
+                <form id="transfer-form">
+
+                    <div class="form-group">
+                        <label for="sender-account">Your Account Number:</label>
+                        <input type="text" id="sender-account" name="sender-account" placeholder="Enter your account number" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="recipient-account">Recipient Account Number:</label>
+                        <input type="text" id="recipient-account" name="recipient-account" placeholder="Enter recipient's account number" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="recipient-name">Recipient Name:</label>
+                        <input type="text" id="recipient-name" name="recipient-name" placeholder="Enter recipient's name" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="transfer-amount">Amount:</label>
+                        <input type="number" id="transfer-amount" name="transfer-amount" placeholder="Enter amount to transfer" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="transfer-notes">Comments (optional):</label>
+                        <textarea id="transfer-notes" name="transfer-notes" rows="3" placeholder="Add any notes"></textarea>
+                    </div>
+            
+                    <button type="submit">Transfer Money</button>
+                </form>
+            </div>            
+
+            <!-- Transactions Section -->
+            <div id="content-transactions" class="content-section">
+                <h1>Transactions</h1>
+                <ul class="current-transactions-list">
+                    <li>
+                        <div class="transaction-container debit">
+                            <span class="datetime">16 Oct, 2024</span>
+                            <span class="transaction">McDonald's</span>
+                            <span class="amount">-$100</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container credit">
+                            <span class="datetime">10 Oct, 2024</span>
+                            <span class="transaction">Forex Transfer</span>
+                            <span class="amount">+$2000</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container debit">
+                            <span class="datetime">30 Sept, 2024</span>
+                            <span class="transaction">CTA Ventra</span>
+                            <span class="amount">-$75</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container debit">
+                            <span class="datetime">21 Sept, 2024</span>
+                            <span class="transaction">WiFi bill</span>
+                            <span class="amount">-$90</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container debit">
+                            <span class="datetime">20 Sept, 2024</span>
+                            <span class="transaction">Comed bill</span>
+                            <span class="amount">-$113</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container credit">
+                            <span class="datetime">21 Sept, 2024</span>
+                            <span class="transaction">Nikhil Varma</span>
+                            <span class="amount">$200</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container debit">
+                            <span class="datetime">21 Sept, 2024</span>
+                            <span class="transaction">Chandra Deep</span>
+                            <span class="amount">-$70</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container debit">
+                            <span class="datetime">21 Sept, 2024</span>
+                            <span class="transaction">Amazon</span>
+                            <span class="amount">-$85</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Statements Section -->
+            <div id="content-statements" class="content-section">
+                <h1>Statements</h1>
+                <p>Download recent statements</p>
+                <ul>
+                    <li><a href="#">September 2024</a></li>
+                    <li><a href="#">August 2024</a></li>
+                    <li><a href="#">July 2024</a></li>
+                    <li><a href="#">June 2024</a></li>
+                    <li><a href="#">May 2024</a></li>
+                    <li><a href="#">April 2024</a></li>
+                    <li><a href="#">March 2024</a></li>
+                    <li><a href="#">February 2024</a></li>
+                    <li><a href="#">January 2024</a></li>
+                    <li><a href="#">December 2023</a></li>
+                    <li><a href="#">November 2023</a></li>
+                    <li><a href="#">October 2023</a></li>
+                    <li><a href="#">September 2023</a></li>
+                </ul>
+            </div>
+
+            <!--Savings Account Details Section -->
+            <div id="content-savings-acc-details" class="content-section">
+                <h1>Account Details</h1>
+                <div class="balance">
+                    <p>Available Balance</p>
+                    <h3>$3,200</h3>                    
+                </div>
+                <p>Account Number: 123456789</p>
+                <p>Account Holder Name: Pranay Kumar</p>
+                <p>Account Type: current</p>
+                <p>Routing number: 700727811 </p>
+                <p>Account Holder Address: 2801 S king Dr, Chicago, IL 60616</p>
+                <p>Branch Address: 33 N Dearborn St, Chicago, IL 60602</p>
+                <p>Last Statement date: Sep 19, 2024</p>
+
+            </div>
+
+            <!-- Savings Transfer Section -->
+            <div id="content-savings-transfer" class="content-section">
+                <h1>Transfer Money</h1>
+                <form id="transfer-form">
+
+                    <div class="form-group">
+                        <label for="sender-account">Your Account Number:</label>
+                        <input type="text" id="sender-account" name="sender-account" placeholder="Enter your account number" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="recipient-account">Recipient Account Number:</label>
+                        <input type="text" id="recipient-account" name="recipient-account" placeholder="Enter recipient's account number" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="recipient-name">Recipient Name:</label>
+                        <input type="text" id="recipient-name" name="recipient-name" placeholder="Enter recipient's name" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="transfer-amount">Amount:</label>
+                        <input type="number" id="transfer-amount" name="transfer-amount" placeholder="Enter amount to transfer" required>
+                    </div>
+            
+                    <div class="form-group">
+                        <label for="transfer-notes">Comments (optional):</label>
+                        <textarea id="transfer-notes" name="transfer-notes" rows="3" placeholder="Add any notes"></textarea>
+                    </div>
+            
+                    <!-- Submit Button -->
+                    <button type="submit">Transfer Money</button>
+                </form>
+            </div>            
+
+            <!-- Savings Transactions Section -->
+            <div id="content-savings-transactions" class="content-section">
+                <h1>Transactions</h1>
+                <ul class="current-transactions-list">
+                    <li>
+                        <div class="transaction-container credit">
+                            <span class="datetime">10 Oct, 2024</span>
+                            <span class="transaction">Direct Deposit</span>
+                            <span class="amount">$100</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container credit">
+                            <span class="datetime">01 Oct, 2024</span>
+                            <span class="transaction">Forex Transfer</span>
+                            <span class="amount">+$1500</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container credit">
+                            <span class="datetime">30 Sept, 2024</span>
+                            <span class="transaction">Interest Added</span>
+                            <span class="amount">+$75</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container credit">
+                            <span class="datetime">21 Sept, 2024</span>
+                            <span class="transaction">Direct Deposit</span>
+                            <span class="amount">$90</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container debit">
+                            <span class="datetime">20 Sept, 2024</span>
+                            <span class="transaction">Current account</span>
+                            <span class="amount">-$400</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="transaction-container credit">
+                            <span class="datetime">15 Sept, 2024</span>
+                            <span class="transaction">Direct Deposit</span>
+                            <span class="amount">$1000</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Savings Statements Section -->
+            <div id="content-savings-statements" class="content-section">
+                <h1>Statements</h1>
+                <p>Download recent statements</p>
+                <ul>
+                    <li><a href="#">September 2024</a></li>
+                    <li><a href="#">August 2024</a></li>
+                    <li><a href="#">July 2024</a></li>
+                    <li><a href="#">June 2024</a></li>
+                    <li><a href="#">May 2024</a></li>
+                    <li><a href="#">April 2024</a></li>
+                    <li><a href="#">March 2024</a></li>
+                    <li><a href="#">February 2024</a></li>
+                    <li><a href="#">January 2024</a></li>
+                    <li><a href="#">December 2023</a></li>
+                    <li><a href="#">November 2023</a></li>
+                    <li><a href="#">October 2023</a></li>
+                    <li><a href="#">September 2023</a></li>
+                </ul>
+            </div>
+
+            <!-- FAQ Content -->
+            <div id="content-faq" class="content-section">
+                <h1>Frequently Asked Questions</h1>
+                <input type="text" placeholder="Search FAQs..." class="faq-search" id="faq-search">
+            
+                <ul id="faq-list">
+                    <li>
+                        <div class="faq-question">What is a bank account?</div>
+                        <div class="faq-answer">A bank account is a financial account maintained by a bank where you can deposit, withdraw, or save money.</div>
+                    </li>
+                    <li>
+                        <div class="faq-question">How to transfer money?</div>
+                        <div class="faq-answer">You can transfer money through your bank's mobile app, net banking, or by visiting a branch.</div>
+                    </li>
+                    <li>
+                        <div class="faq-question">What are the fees associated with my account?</div>
+                        <div class="faq-answer">Fees vary by account type. Check with your bank for a detailed list of fees.</div>
+                    </li>
+                    <li>
+                        <div class="faq-question">How can I set up direct deposit to my account?</div>
+                        <div class="faq-answer">To set up direct deposit (ACH) to your account at the Bank, you can fill out a Direct Deposit Authorization form.</div>
+                    </li>
+                    <li>
+                        <div class="faq-question">Do you offer early access to paycheck deposits?</div>
+                        <div class="faq-answer">Yes, with Early Pay, you can get your paycheck up to two days early. To take advantage of Early Pay, you need to have a Momentum® Checking Account or Express Banking® Account that’s set up for direct deposit.</div>
+                    </li>
+                    <li>
+                        <div class="faq-question">How can I provide feedback or report a concern related to my account or my experience with Netbanking?</div>
+                        <div class="faq-answer">We welcome your feedback. If you have a suggestion or concern with your account, you can contact us by phone, online message, visiting a financial center or sending a letter.</div>
+                    </li>
+                    <li>
+                        <div class="faq-question">How do I change my address or phone number?</div>
+                        <div class="faq-answer">You can update your address and phone number by logging into Online Banking and visiting the Service Center link at the top of the page. You can also call us toll free at 1-800-972-3030 or visit a Branch near you.</div>
+                    </li>
+                    <li>
+                        <div class="faq-question">How can I send or receive a wire transfer?</div>
+                        <div class="faq-answer">Visit a financial institution or Bank Branch to set up a wire transfer.</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2024 Banking Application</p>
+    </footer>
 </body>
 </html>

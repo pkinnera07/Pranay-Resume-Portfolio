@@ -1,0 +1,299 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #555;
+    color: white;
+    height:100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    display:block;
+    color: white;
+    padding:5pt;
+    background-color: #555;
+    border-radius: 5pt;
+}
+
+h2{
+    margin-left: 10pt;
+}
+
+h3{
+    font-size: 1cm;
+    margin:5pt;
+}
+
+.nav-item {
+    padding: 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    background-color: #333;
+}
+
+.collapsible {
+    background-color: #555;
+}
+
+.submenu .nav-item {
+    padding-left: 20px;
+}
+
+.submenu {
+    display: none; /* Ensure submenu is hidden initially */
+    font-size: 12px;
+    margin-left: 20px; /* Use margin-left for consistency */
+}
+
+.main-content {
+    display: grid;
+    padding: 20px;
+    flex: 1; /* Allow main content to fill remaining space */
+    box-sizing: border-box;
+}
+
+.balance-container {
+    display: flex;  /* Use flexbox to align the two blocks side by side */
+    justify-content: space-between; /* Add space between the two blocks */
+    gap: 20px; /* Optional: Add some space between the blocks */
+}
+
+.balance {
+    background-color: rgb(189, 188, 188);
+    padding: 10px;
+    border-radius: 10px;
+    flex: 1;  /* Allow the blocks to evenly distribute the width */
+    box-sizing: border-box;  /* Ensure padding is included in the width */
+    margin-bottom: 10px; /* Add some margin at the bottom */
+}
+
+.balance p {
+    font-size: 16px;
+    color: #333;
+}
+
+.balance h3 {
+    font-size: 24px;
+    margin-top: 5px;
+    color: #000;
+}
+
+
+.main-row {
+    display: flex; /* Enable flexbox layout */
+    justify-content: space-between; /* Distribute space between items */
+    margin-top: 20px; /* Add spacing above the row */
+}
+
+.recent-container, .cards-container, .quick-container {
+    background-color: #555;
+    color: white;
+    border-radius: 10pt;
+    flex: 0 1 40%; /* Allow each item to have a base width of 40% */
+    margin: 0 10px; /* Add some horizontal spacing */
+}
+
+.recent, .cards, .quick {
+    padding: 20px; /* Add padding for better spacing */
+    color: black;
+    box-sizing: border-box; /* Include padding in height/width calculations */
+    height: 150px; /* Set a fixed height for consistency */
+    overflow: auto; /* Ensure content is scrollable if it overflows */
+    background-color: rgb(240, 240, 240);
+}
+
+ul {
+    list-style-type: none; /* Remove default list style */
+    padding: 0; /* Remove default padding */
+}
+
+li {
+    display: flex; /* Use flexbox for alignment */
+    align-items: flex-start; /* Align items at the start */
+    margin: 10px 0; /* Add spacing between transactions */
+}
+
+.arrow {
+    font-weight: bold; /* Make the arrow bold */
+    font-size: 1.5em; /* Increase arrow size */
+    margin-right: 10px; /* Add some space after the arrow */
+    line-height: 1; /* Adjust line height for better alignment */
+}
+
+.transaction-container {
+    display: flex;
+    flex-direction: column; /* Stack transaction and date vertically */
+}
+
+.transaction {
+    display: inline; /* Keep transactions inline */
+}
+
+.amount {
+    font-size: 1.5em; /* Make the amount larger */
+}
+.debit .amount {
+    color: red; /* Red for debit */
+}
+
+.credit .amount {
+    color: green; /* Green for credit */
+}
+
+.datetime {
+    font-size: 0.8em; /* Smaller font for date/time */
+    color: #666; /* Grey color for date/time */
+    margin-top: 2px; /* Add some space above the date/time */
+}
+
+/* Image styling */
+.cards img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain the aspect ratio */
+    max-width: 220px; /* Set a maximum width for the image */
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+    padding: 20px; /* Add padding to content sections */
+}
+
+/* Specific styling for current account transactions */
+.current-transactions-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.current-transactions-list li {
+    display: flex;
+    justify-content: space-between; /* Distribute space between date, transaction, and amount */
+    align-items: center; /* Ensure items are vertically aligned */
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* Add divider between transactions */
+}
+
+.current-transactions-list .transaction-container {
+    display: flex;
+    width: 100%; /* Ensure the container spans the full width */
+    justify-content: space-between; /* Ensure space is distributed evenly */
+}
+
+.current-transactions-list .datetime {
+    flex-basis: 20%; /* Ensure the date takes up 20% of the width */
+    text-align: left;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.current-transactions-list .transaction {
+    flex-basis: 50%; /* The transaction name takes 50% of the width */
+    text-align: left;
+    font-size: 1.1em;
+    padding-left: 10px;
+}
+
+.current-transactions-list .amount {
+    flex-basis: 20%; /* The amount takes up 20% of the width */
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.current-transactions-list .debit .amount {
+    color: red;
+}
+
+.current-transactions-list .credit .amount {
+    color: green;
+}
+
+/* Form Styling */
+form {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form .form-group {
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* FAQ Styles */
+.faq-question {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.faq-answer {
+    display: none; /* Initially hidden */
+    padding: 10px;
+    border-left: 3px solid #007bff;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+}
+
+.faq-question.active {
+    background-color: #e7e7e7;
+}
