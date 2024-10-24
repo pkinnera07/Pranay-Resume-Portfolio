@@ -11,7 +11,7 @@ body {
     width: 250px;
     background-color: #555;
     color: white;
-    height:100vh;
+    height:auto;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -45,8 +45,9 @@ h3{
     background-color: #333;
 }
 
-.collapsible {
+.collapsible, .nav-item.button {
     background-color: #555;
+    color: #f2f2f2;
 }
 
 .submenu .nav-item {
@@ -177,13 +178,15 @@ li {
 }
 
 /* Specific styling for current account transactions */
-.current-transactions-list {
+.current-transactions-list,
+.savings-transactions-list { /* Apply same styles to both lists */
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-.current-transactions-list li {
+.current-transactions-list li,
+.savings-transactions-list li { /* Apply same styles to both list items */
     display: flex;
     justify-content: space-between; /* Distribute space between date, transaction, and amount */
     align-items: center; /* Ensure items are vertically aligned */
@@ -191,40 +194,47 @@ li {
     border-bottom: 1px solid #ddd; /* Add divider between transactions */
 }
 
-.current-transactions-list .transaction-container {
+.current-transactions-list .transaction-container,
+.savings-transactions-list .transaction-container { /* Ensure both containers span full width */
     display: flex;
     width: 100%; /* Ensure the container spans the full width */
     justify-content: space-between; /* Ensure space is distributed evenly */
 }
 
-.current-transactions-list .datetime {
+.current-transactions-list .datetime,
+.savings-transactions-list .datetime { /* Same styling for datetime */
     flex-basis: 20%; /* Ensure the date takes up 20% of the width */
     text-align: left;
     color: #666;
     font-size: 0.9em;
 }
 
-.current-transactions-list .transaction {
+.current-transactions-list .transaction,
+.savings-transactions-list .transaction { /* Same styling for transaction name */
     flex-basis: 50%; /* The transaction name takes 50% of the width */
     text-align: left;
     font-size: 1.1em;
     padding-left: 10px;
 }
 
-.current-transactions-list .amount {
+.current-transactions-list .amount,
+.savings-transactions-list .amount { /* Same styling for amount */
     flex-basis: 20%; /* The amount takes up 20% of the width */
     text-align: right;
     font-weight: bold;
     font-size: 1.1em;
 }
 
-.current-transactions-list .debit .amount {
+.current-transactions-list .debit .amount,
+.savings-transactions-list .debit .amount { /* Debit styling for both lists */
     color: red;
 }
 
-.current-transactions-list .credit .amount {
+.current-transactions-list .credit .amount,
+.savings-transactions-list .credit .amount { /* Credit styling for both lists */
     color: green;
 }
+
 
 /* Form Styling */
 form {

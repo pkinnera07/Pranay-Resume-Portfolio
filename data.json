@@ -1,0 +1,76 @@
+{
+    "current_transactions": [
+        {
+            "datetime": "21 Sept, 2024",
+            "transaction": "McDonald's",
+            "amount": "-$100"
+        },
+        {
+            "datetime": "21 Sept, 2024",
+            "transaction": "Forex Transfer",
+            "amount": "+$2000"
+        },
+        {
+            "datetime": "22 Sept, 2024",
+            "transaction": "CTA Ventra",
+            "amount": "-$75"
+        },
+        {
+            "datetime": "28 Sept, 2024",
+            "transaction": "WiFi bill",
+            "amount": "-$90"
+        },
+        {
+            "datetime": "30 Sept, 2024",
+            "transaction": "Comed bill",
+            "amount": "-$113"
+        },
+        {
+            "datetime": "11 Oct, 2024",
+            "transaction": "Nikhil Varma",
+            "amount": "$200"
+        },
+        {
+            "datetime": "14 Oct, 2024",
+            "transaction": "Chandra Deep",
+            "amount": "-$70"
+        },
+        {
+            "datetime": "20 Oct, 2024",
+            "transaction": "Amazon",
+            "amount": "-$85"
+        }
+    ],
+    "savings_transactions": [
+        {
+            "datetime": "15 Sept, 2024",
+            "transaction": "Direct Deposit",
+            "amount": "$100"
+        },
+        {
+            "datetime": "20 Sept, 2024",
+            "transaction": "Forex Transfer",
+            "amount": "+$1500"
+        },
+        {
+            "datetime": "03 Oct, 2024",
+            "transaction": "Interest Added",
+            "amount": "+$75"
+        },
+        {
+            "datetime": "16 Oct, 2024",
+            "transaction": "Direct Deposit",
+            "amount": "$90"
+        },
+        {
+            "datetime": "20 Oct, 2024",
+            "transaction": "Current account",
+            "amount": "-$400"
+        },
+        {
+            "datetime": "21 Oct, 2024",
+            "transaction": "Direct Deposit",
+            "amount": "$1000"
+        }
+    ]
+}

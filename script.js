@@ -1,6 +1,12 @@
 // Function to toggle the visibility of a submenu
-function toggleSubmenu(submenu) {
-    submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+function toggleSubmenu(submenu, button) {
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+    // Toggle the display property of the submenu
+    submenu.style.display = isExpanded ? 'none' : 'block';
+
+    // Update the aria-expanded attribute based on the new state
+    button.setAttribute('aria-expanded', !isExpanded);
 }
 
 // Function to toggle the visibility of an element
@@ -10,9 +16,14 @@ function toggleVisibility(element) {
 
 // Initialize collapsible sections
 function setupCollapsibleSection(collapsibleElement, submenuElement) {
+    // Set initial aria-expanded attribute
+    collapsibleElement.setAttribute('aria-expanded', 'false');
+
     collapsibleElement.addEventListener('click', (e) => {
         e.stopPropagation();  // Prevents parent content switching
-        toggleSubmenu(submenuElement);  // Toggle the submenu display
+
+        // Toggle the submenu display and aria-expanded state
+        toggleSubmenu(submenuElement, collapsibleElement);
     });
 }
 
@@ -107,3 +118,100 @@ document.addEventListener('DOMContentLoaded', () => {
     // Setup collapsible functionality for FAQ questions and answers
     setupFaqCollapsible();
 });
+
+
+//Transactions Management////////////////
+// Function to fetch transactions from the data.json file
+async function loadTransactions() {
+    try {
+        const response = await fetch('data.json');
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        
+        // Pass current and savings transactions to display function
+        displayTransactions(data.current_transactions, data.savings_transactions);
+    } catch (error) {
+        console.error('Error loading transactions:', error);
+    }
+}
+
+// Function to display transactions in the UI
+function displayTransactions(currentTransactions, savingsTransactions) {
+    const currentTransactionList = document.querySelector('.current-transactions-list');
+    const savingsTransactionList = document.querySelector('.savings-transactions-list');
+
+    // Clear existing items
+    currentTransactionList.innerHTML = '';
+    savingsTransactionList.innerHTML = '';
+
+    // Display current transactions
+    currentTransactions.slice().reverse().forEach(trans => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <div class="transaction-container ${trans.amount.startsWith('-') ? 'debit' : 'credit'}">
+                <span class="datetime">${trans.datetime}</span>
+                <span class="transaction">${trans.transaction}</span>
+                <span class="amount">${trans.amount}</span>
+            </div>
+        `;
+        currentTransactionList.appendChild(listItem);
+    });
+
+    // Display savings transactions
+    savingsTransactions.slice().reverse().forEach(trans => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            <div class="transaction-container ${trans.amount.startsWith('-') ? 'debit' : 'credit'}">
+                <span class="datetime">${trans.datetime}</span>
+                <span class="transaction">${trans.transaction}</span>
+                <span class="amount">${trans.amount}</span>
+            </div>
+        `;
+        savingsTransactionList.appendChild(listItem);
+    });
+}
+
+// Load transactions when the document is ready
+document.addEventListener('DOMContentLoaded', loadTransactions);
+
+
+// Handle form submission
+document.getElementById('transfer-form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const senderAccount = document.getElementById('sender-account').value;
+    const recipientAccount = document.getElementById('recipient-account').value;
+    const recipientName = document.getElementById('recipient-name').value;
+    const transferAmount = document.getElementById('transfer-amount').value;
+    const transferNotes = document.getElementById('transfer-notes').value;
+
+    // Create a new transaction object
+
+    const options = {
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric'
+    };
+    
+    const newTransaction = {
+        datetime: new Date().toLocaleString('en-GB', options),
+        transaction: `Transfer to ${recipientName} (${recipientAccount})`,
+        amount: transferAmount.startsWith('-') ? transferAmount : `+$${transferAmount}`
+    };
+
+    // Fetch existing transactions and add the new one
+    const transactions = await fetch('data.json').then(response => response.json());
+    transactions.push(newTransaction);
+
+    // Display the updated transactions
+    displayTransactions(transactions);
+
+    // Reset the form
+    this.reset();
+});
+
+// Call the function to load transactions on page load
+window.onload = loadTransactions;
+

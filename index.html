@@ -7,50 +7,50 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <main class="container">
         <!-- Side Navigation Bar -->
-        <div class="sidebar">
+        <aside class="sidebar">
             <h2>Net Banking</h2>
-            <div id="dashboard" class="nav-item active">Dashboard</div>
+            <section id="dashboard" class="nav-item active">Dashboard</section>
             
             <!-- Collapsible Current Account Section -->
-            <div class="nav-item collapsible current-account">Current Account</div>
-            <div class="submenu current-account" style="display: none;">
-                <div class="nav-item" data-section="acc-details">Account Details</div>
-                <div class="nav-item" data-section="transfer">Transfer</div>
-                <div class="nav-item" data-section="transactions">Transactions</div>
-                <div class="nav-item" data-section="statements">Statements</div>
-            </div>
+            <button aria-expanded="false" class="nav-item collapsible current-account">Current Account</button>
+            <ul class="submenu current-account" style="display: none;">
+                <li><a class="nav-item" data-section="acc-details">Account Details</a></li>
+                <li><a class="nav-item" data-section="transfer">Transfer</a></li>
+                <li><a class="nav-item" data-section="transactions">Transactions</a></li>
+                <li><a class="nav-item" data-section="statements">Statements</a></li>
+            </ul>
         
             <!-- Collapsible Savings Account Section -->
-            <div class="nav-item collapsible savings-account">Savings Account</div>
-            <div class="submenu savings-account" style="display: none;">
-                <div class="nav-item" data-section="savings-acc-details">Account Details</div>
-                <div class="nav-item" data-section="savings-transfer">Transfer</div>
-                <div class="nav-item" data-section="savings-transactions">Transactions</div>
-                <div class="nav-item" data-section="savings-statements">Statements</div>
-            </div>
+            <button aria-expanded="false" class="nav-item collapsible savings-account">Savings Account</button>
+            <ul class="submenu savings-account" style="display: none;">
+                <li><a class="nav-item" data-section="savings-acc-details">Account Details</a></li>
+                <li><a class="nav-item" data-section="savings-transfer">Transfer</a></li>
+                <li><a class="nav-item" data-section="savings-transactions">Transactions</a></li>
+                <li><a class="nav-item" data-section="savings-statements">Statements</a></li>
+            </ul>
             <div class="nav-item" data-section="faq" id="faq-link">FAQ</div> <!-- FAQ Link -->
-        </div>
+        </aside>
         <!-- Main Content -->
-        <div class="main-content">
-            <div id="content-dashboard" class="content-section active">
+        <main class="main-content">
+            <Section id="content-dashboard" class="content-section active">
                 <h1>Dashboard</h1>
                 <h2>Hello Pranay!!</h2>
-                <div class="balance-container">
-                    <div class="balance">
+                <article class="balance-container">
+                    <block class="balance">
                         <p>Total Balance</p>
                         <h3>$7,527</h3>
-                    </div>
+                    </block>
                 
-                    <div class="balance">
+                    <block class="balance">
                         <p>Savings</p>
                         <h3>$3,200</h3>
-                    </div>
-                </div>
+                    </block>
+                </article>
                 
-                <div class="main-row">
-                    <div class="recent-container">
+                <article class="main-row">
+                    <article class="recent-container">
                         <h2>Recent Transactions</h2>
                         <div class="recent">
                             <ul>
@@ -58,35 +58,35 @@
                                     <span class="arrow">↑</span>
                                     <div class="transaction-container debit">
                                         <span class="transaction">McDonald's <span class="amount">-$100</span></span>
-                                        <div class="datetime">16 Oct, 2024</div>
+                                        <time class="datetime">16 Oct, 2024</time>
                                     </div>
                                 </li>
                                 <li>
                                     <span class="arrow">↓</span>
                                     <div class="transaction-container credit">
                                         <span class="transaction"> Forex Transfer <span class="amount">+$2000</span></span>
-                                        <div class="datetime">10 Oct, 2024</div>
+                                        <time class="datetime">10 Oct, 2024</time>
                                     </div>
                                 </li>
                                 <li>
                                     <span class="arrow">↓</span>
                                     <div class="transaction-container debit">
                                         <span class="transaction">CTA Ventra <span class="amount">-$75</span></span>
-                                        <div class="datetime">30 Sept, 2024</div>
+                                        <time class="datetime">30 Sept, 2024</time>
                                     </div>
                                 </li>
                                 <li>
                                     <span class="arrow">↑</span>
                                     <div class="transaction-container debit">
                                         <span class="transaction">WiFi bill <span class="amount">-$90</span></span>
-                                        <div class="datetime">21 Sept, 2024</div>
+                                        <time class="datetime">21 Sept, 2024</time>
                                     </div>
                                 </li>
                             </ul>
                             
                             
                         </div>
-                    </div>
+                    </article>
                 
                     <div class="cards-container">
                         <h2>Available Cards</h2>
@@ -95,9 +95,9 @@
                         </div>
                     </div>
                     
-                    <div class="quick-container">
+                    <nav class="quick-container">
                         <h2>Quick Links</h2>
-                        <div class="quick">
+                        <nav class="quick">
                             <ul>
                                 <li><a href="#">Pay Bills</a></li>
                                 <li><a href="#">Transfer Funds</a></li>
@@ -107,18 +107,18 @@
                                 <li><a href="#">Customer Support</a></li>
                                 <li><a href="#">FAQs</a></li>
                             </ul>
-                        </div>
-                    </div>
-                </div>  
-            </div>
+                        </nav>
+                    </nav>
+                </article>  
+            </Section>
 
             <!-- Account Details Section -->
-            <div id="content-acc-details" class="content-section">
+            <section id="content-acc-details" class="content-section">
                 <h1>Account Details</h1>
-                <div class="balance">
+                <article class="balance">
                     <p>Available Balance</p>
                     <h3>$7,527</h3>                    
-                </div>
+                </article>
                 <p>Account Number: 123456789</p>
                 <p>Account Holder Name: Pranay Kumar</p>
                 <p>Account Type: current</p>
@@ -127,107 +127,47 @@
                 <p>Branch Address: 33 N Dearborn St, Chicago, IL 60602</p>
                 <p>Last Statement date: Sep 19, 2024</p>
 
-            </div>
+            </section>
 
             <!-- Transfer Section -->
-            <div id="content-transfer" class="content-section">
+            <section id="content-transfer" class="content-section">
                 <h1>Transfer Money</h1>
                 <form id="transfer-form">
-
-                    <div class="form-group">
-                        <label for="sender-account">Your Account Number:</label>
-                        <input type="text" id="sender-account" name="sender-account" placeholder="Enter your account number" required>
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="recipient-account">Recipient Account Number:</label>
-                        <input type="text" id="recipient-account" name="recipient-account" placeholder="Enter recipient's account number" required>
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="recipient-name">Recipient Name:</label>
-                        <input type="text" id="recipient-name" name="recipient-name" placeholder="Enter recipient's name" required>
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="transfer-amount">Amount:</label>
-                        <input type="number" id="transfer-amount" name="transfer-amount" placeholder="Enter amount to transfer" required>
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="transfer-notes">Comments (optional):</label>
-                        <textarea id="transfer-notes" name="transfer-notes" rows="3" placeholder="Add any notes"></textarea>
-                    </div>
-            
-                    <button type="submit">Transfer Money</button>
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="sender-account">Your Account Number:</label>
+                            <input type="text" id="sender-account" name="sender-account" value="123456789" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-account">Recipient Account Number:</label>
+                            <input type="text" id="recipient-account" name="recipient-account" placeholder="Enter recipient's account number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name">Recipient Name:</label>
+                            <input type="text" id="recipient-name" name="recipient-name" placeholder="Enter recipient's name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="transfer-amount">Amount:</label>
+                            <input type="number" id="transfer-amount" name="transfer-amount" placeholder="Enter amount to transfer" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="transfer-notes">Comments (optional):</label>
+                            <textarea id="transfer-notes" name="transfer-notes" rows="3" placeholder="Add any notes"></textarea>
+                        </div>
+                        <button type="submit">Transfer Money</button>
+                    <fieldset>
                 </form>
-            </div>            
+            </section>           
 
             <!-- Transactions Section -->
-            <div id="content-transactions" class="content-section">
+            <section id="content-transactions" class="content-section">
                 <h1>Transactions</h1>
-                <ul class="current-transactions-list">
-                    <li>
-                        <div class="transaction-container debit">
-                            <span class="datetime">16 Oct, 2024</span>
-                            <span class="transaction">McDonald's</span>
-                            <span class="amount">-$100</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container credit">
-                            <span class="datetime">10 Oct, 2024</span>
-                            <span class="transaction">Forex Transfer</span>
-                            <span class="amount">+$2000</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container debit">
-                            <span class="datetime">30 Sept, 2024</span>
-                            <span class="transaction">CTA Ventra</span>
-                            <span class="amount">-$75</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container debit">
-                            <span class="datetime">21 Sept, 2024</span>
-                            <span class="transaction">WiFi bill</span>
-                            <span class="amount">-$90</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container debit">
-                            <span class="datetime">20 Sept, 2024</span>
-                            <span class="transaction">Comed bill</span>
-                            <span class="amount">-$113</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container credit">
-                            <span class="datetime">21 Sept, 2024</span>
-                            <span class="transaction">Nikhil Varma</span>
-                            <span class="amount">$200</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container debit">
-                            <span class="datetime">21 Sept, 2024</span>
-                            <span class="transaction">Chandra Deep</span>
-                            <span class="amount">-$70</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container debit">
-                            <span class="datetime">21 Sept, 2024</span>
-                            <span class="transaction">Amazon</span>
-                            <span class="amount">-$85</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                <ul class="current-transactions-list"></ul>
+            </section>
+
             
             <!-- Statements Section -->
-            <div id="content-statements" class="content-section">
+            <nav id="content-statements" class="content-section">
                 <h1>Statements</h1>
                 <p>Download recent statements</p>
                 <ul>
@@ -245,10 +185,10 @@
                     <li><a href="#">October 2023</a></li>
                     <li><a href="#">September 2023</a></li>
                 </ul>
-            </div>
+            </nav>
 
             <!--Savings Account Details Section -->
-            <div id="content-savings-acc-details" class="content-section">
+            <article id="content-savings-acc-details" class="content-section">
                 <h1>Account Details</h1>
                 <div class="balance">
                     <p>Available Balance</p>
@@ -262,10 +202,10 @@
                 <p>Branch Address: 33 N Dearborn St, Chicago, IL 60602</p>
                 <p>Last Statement date: Sep 19, 2024</p>
 
-            </div>
+            </article>
 
             <!-- Savings Transfer Section -->
-            <div id="content-savings-transfer" class="content-section">
+            <section id="content-savings-transfer" class="content-section">
                 <h1>Transfer Money</h1>
                 <form id="transfer-form">
 
@@ -297,59 +237,16 @@
                     <!-- Submit Button -->
                     <button type="submit">Transfer Money</button>
                 </form>
-            </div>            
+            </section>            
 
             <!-- Savings Transactions Section -->
-            <div id="content-savings-transactions" class="content-section">
-                <h1>Transactions</h1>
-                <ul class="current-transactions-list">
-                    <li>
-                        <div class="transaction-container credit">
-                            <span class="datetime">10 Oct, 2024</span>
-                            <span class="transaction">Direct Deposit</span>
-                            <span class="amount">$100</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container credit">
-                            <span class="datetime">01 Oct, 2024</span>
-                            <span class="transaction">Forex Transfer</span>
-                            <span class="amount">+$1500</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container credit">
-                            <span class="datetime">30 Sept, 2024</span>
-                            <span class="transaction">Interest Added</span>
-                            <span class="amount">+$75</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container credit">
-                            <span class="datetime">21 Sept, 2024</span>
-                            <span class="transaction">Direct Deposit</span>
-                            <span class="amount">$90</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container debit">
-                            <span class="datetime">20 Sept, 2024</span>
-                            <span class="transaction">Current account</span>
-                            <span class="amount">-$400</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="transaction-container credit">
-                            <span class="datetime">15 Sept, 2024</span>
-                            <span class="transaction">Direct Deposit</span>
-                            <span class="amount">$1000</span>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            <section id="content-savings-transactions" class="content-section">
+                <h1>Savings Transactions</h1>
+                <ul class="savings-transactions-list"></ul>
+            </section>
 
             <!-- Savings Statements Section -->
-            <div id="content-savings-statements" class="content-section">
+            <nav id="content-savings-statements" class="content-section">
                 <h1>Statements</h1>
                 <p>Download recent statements</p>
                 <ul>
@@ -367,10 +264,10 @@
                     <li><a href="#">October 2023</a></li>
                     <li><a href="#">September 2023</a></li>
                 </ul>
-            </div>
+            </nav>
 
             <!-- FAQ Content -->
-            <div id="content-faq" class="content-section">
+            <section id="content-faq" class="content-section">
                 <h1>Frequently Asked Questions</h1>
                 <input type="text" placeholder="Search FAQs..." class="faq-search" id="faq-search">
             
@@ -408,10 +305,10 @@
                         <div class="faq-answer">Visit a financial institution or Bank Branch to set up a wire transfer.</div>
                     </li>
                 </ul>
-            </div>
+            </section>
 
-        </div>
-    </div>
+        </main>
+    </main>
 
     <script src="script.js"></script>
     <footer>
