@@ -101,7 +101,7 @@ export default {
 .skills-hive-container {
   width: 100%; /* Take up full available width */
   display: flex;
-  background-color: rgba(119, 108, 96, 0.2);
+  background-color:azure;
   justify-content: center;
   align-items: center;
   margin-top: 20px;

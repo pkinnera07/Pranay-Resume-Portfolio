@@ -152,7 +152,6 @@ button {
   cursor: pointer;
   font-weight: bold;
   background-color: transparent;
-  text-decoration: underline;
   text-decoration-thickness: 2px;
   color:azure;
   transition: background-color 0.3s, color 0.3s, border-bottom 0.3s;
@@ -168,6 +167,7 @@ button:hover {
 button.active {
   background-color: azure;
   color: rgba(3, 31, 58, 1);
+  text-decoration: underline;
 }
 
 /* Main content styling */
