@@ -35,19 +35,19 @@ export default {
         {
           name: 'Dairy Business Web Application',
           image: require('@/assets/dairyProject.png'),  // Use relative path here
-          github: 'https://github.com/username/project1',
+          github: 'https://github.com/pkinnera07/ITMD-543_Web-App/',
           status: 'in-progress', // Set status
         },
         {
           name: 'Bank Transaction Mgmt App',
           image: require('@/assets/BankProject.png'),  // Use relative path here
-          github: 'https://github.com/username/project2',
+          github: 'https://github.com/pkinnera07/ITMD-543_Web-App/',
           status: 'completed', // Set status
         },
         {
           name: 'Level-2 EV Charging Point',
           image: require('@/assets/chargingStation.png'),  // Use relative path here
-          github: 'https://github.com/username/project3',
+          github: 'https://github.com/pkinnera07/ITMD-543_Web-App/',
           status: 'completed', // Set status
         },
         // Add more projects here as needed
