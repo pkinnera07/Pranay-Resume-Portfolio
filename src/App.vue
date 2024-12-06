@@ -274,7 +274,7 @@ button.active {
 /* Transition styling */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.9s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 
 .fade-enter, .fade-leave-to {
