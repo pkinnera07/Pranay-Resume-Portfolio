@@ -13,25 +13,29 @@
     <a href="tel:+13128683526">
       <i class="fas fa-phone"></i>
     </a>
+    <a href="/Resume.pdf" target="_blank">
+      <i class="fa-solid fa-file-lines"></i>
+    </a>
   </div>
 </template>
 
 <script>
 export default {
   name: 'ContactComponent',
+  data() {
+    return {};
+  }
 };
 </script>
 
 <style scoped>
 .contacts {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh; /* Takes up 80% of the screen height */
+  justify-content: space-between;
 }
 
 .contacts a {
-  font-size: 50px; /* Icon size */
+  font-size: 30px; /* Icon size */
   margin: 0 15px; /* Spacing between icons */
   color: rgba(3, 31, 58, 0.8); /* Icon color */
   transition: color 0.3s ease;

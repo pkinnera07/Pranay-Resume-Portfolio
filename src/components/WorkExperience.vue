@@ -1,13 +1,22 @@
 <template>
   <div class="work-experience-container">
     <div class="job-block" v-for="(job, index) in workExperiences" :key="index">
-      <div class="job-header">
-        <h3>{{ job.title }}</h3>
-        <p class="company-info">
-          <span class="company-name">{{ job.company }}</span>,
-          <span class="location">{{ job.location }}</span>,
-          <span class="dates">{{ job.dates }}</span>
-        </p>
+      <div class="job-info">
+        <div class="job-logo">
+          <img :src="job.logo" alt="Company Logo" class="logo" />
+        </div>
+        <div class="job-details">
+          <h3 class="job-title">{{ job.title }}</h3>
+          <p class="company-name">{{ job.company }}</p>
+          <p class="location">{{ job.location }}</p>
+        </div>
+        <div class="timeline-container">
+          <div class="timeline"></div>
+          <div class="timeline-info">
+            <p class="year">{{ job.endDate }}</p>
+            <p class="year">{{ job.startDate }}</p>
+          </div>
+        </div>
       </div>
       <ul class="job-responsibilities">
         <li v-for="(responsibility, index) in job.responsibilities" :key="index">{{ responsibility }}</li>
@@ -25,7 +34,9 @@ export default {
           title: "Senior Quality Engineer",
           company: "LTIMindtree Ltd",
           location: "Bengaluru, India",
-          dates: "October 2022 - July 2023",
+          startDate: "Oct 2022",
+          endDate: "Jul 2023",
+          logo: require('@/assets/lti.png'), // Example logo for the job
           responsibilities: [
             "Led quality assurance efforts for a key insurance domain project.",
             "Demonstrated a 20% increase in automation efficiency with TypeScript and Playwright.",
@@ -36,9 +47,11 @@ export default {
         },
         {
           title: "Graduate Engineer Intern",
-          company: "LTIMindtree Ltd",
+          company: "LTIMindtree Ltd.",
           location: "Hyderabad, India",
-          dates: "July 2022 - October 2022",
+          startDate: "Jul 2022",
+          endDate: "Oct 2023",
+          logo: require('@/assets/lti.png'), // Example logo for the job
           responsibilities: [
             "Worked on data warehousing & integration with ETL processes.",
             "Implemented Slowly Changing Dimensions (SCDs) for improved data integrity.",
@@ -51,7 +64,9 @@ export default {
           title: "Programmer Analyst Intern",
           company: "Cognizant Technology Solutions",
           location: "Hyderabad, India",
-          dates: "April 2022 - July 2022",
+          startDate: "Apr 2022",
+          endDate: "Jul 2022",
+          logo: require('@/assets/cognizant.png'), // Example logo for the job
           responsibilities: [
             "Created web applications using JDBC for database connectivity.",
             "Enhanced SQL skills for efficient data manipulation.",
@@ -65,18 +80,21 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 /* Work Experience Section Styling */
 .work-experience-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  font-family: cursive;
+  gap: 20px;
+  width: 100%;
 }
 
 h2 {
   text-align: center;
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .job-block {
@@ -85,64 +103,104 @@ h2 {
   gap: 10px;
   padding: 20px;
   position: relative;
-  width: 100%;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0.4); /* Transparent white background */
   border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.job-block::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -2px; /* Position the left border */
-  width: 2px;
-  height: 50%; /* Only cover half of the block vertically */
-  background-color: rgba(3, 31, 58, 1); /* Blue border */
+
+.job-info {
+  display: flex;
+  justify-content:flex-start;
+  align-items: flex-start; /* Align items to start */
+  width: auto;
+  height: auto;
+  overflow: hidden;
 }
 
-.job-block::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: -2px; /* Position the right border */
-  width: 2px;
-  height: 50%; /* Only cover half of the block vertically */
-  background-color: rgba(3, 31, 58, 1); /* Blue border */
+.job-logo {
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
-.job-header {
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+.job-details {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  justify-content: space-between;
 }
 
-.job-header h3 {
-  font-size: 1.5rem;
+.job-title {
+  font-size: 20px;
+  font-weight: bold;
   margin: 0;
-  padding:5px;
-  color:azure;
-  border-radius: 15px;
-  background-color: rgba(3, 31, 58, 1);
-}
-
-.company-info {
-  font-size: 1rem;
-  color: rgba(3, 31, 58, 1);
+  color: #00152b;
 }
 
 .company-name {
-  font-weight: bold;
-}
-
-.dates {
-  font-style: italic;
+  font-size: 16px;
+  color: rgba(3, 31, 58, 1);
+  margin: 5px 0;
 }
 
 .job-responsibilities {
-  list-style-type: disc;
+  list-style-type:square;
   padding-left: 20px;
+  margin: 0px;
 }
 
 .job-responsibilities li {
   margin: 5px 0;
+  font-size: 16px;
 }
+
+.timeline-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.timeline {
+  width: 2px;
+  height: 90px;
+  background-color: rgba(3, 31, 58, 1);;
+  margin-right: 15px;
+}
+.year {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+.timeline-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+
+  .year {
+    font-size: 10px;
+    color: #555;
+    margin: 0;
+  }
+  .timeline-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .job-title {
+    font-size: 14px;
+  }
+  .company-name, .job-responsibilities li, .location{
+    font-size: 12px;
+  }
+}
+
 </style>

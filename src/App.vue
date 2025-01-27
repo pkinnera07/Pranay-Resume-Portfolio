@@ -7,27 +7,23 @@
         :class="{ active: activeSection === 'home' }"
       >Home</button>
       <button 
-        @click="goToSection('education')" 
-        :class="{ active: activeSection === 'education' }"
-      >Education</button>
-      <button 
         @click="goToSection('projects')" 
         :class="{ active: activeSection === 'projects' }"
       >Projects</button>
       <button 
+        @click="goToSection('education')" 
+        :class="{ active: activeSection === 'education' }"
+      >Education</button>
+      <button 
         @click="goToSection('workExperience')" 
         :class="{ active: activeSection === 'workExperience' }"
       >Experience</button>
-      <button 
-        @click="goToSection('contact')" 
-        :class="{ active: activeSection === 'contact' }"
-      >Contact</button>
     </div>
 
     <!-- Main Content -->
     <main class="main-content">
       <!-- Profile Section -->
-      <div class="profile-section" :class="{ 'column-layout': isProfileColumnLayout, 'home-layout': activeSection === 'home' }">
+      <div class="profile-section">
         <div class="profile-pic-container">
           <img src="@/assets/profile.png" alt="Profile Picture" class="profile-pic" />
         </div>
@@ -38,70 +34,54 @@
           </h1>
           <p class="about-me">I am a curious software developer with experience in various technologies. I love solving problems and building impactful solutions!</p>
         </div>
+        <contact></contact>
       </div>
 
-      <!-- Dynamic Content with Transition -->
+      <!-- Static Content Section -->
       <div class="content-section">
-        <transition name="fade" mode="out-in">
-          <component :is="currentComponent"></component>
-        </transition>
+        <!-- Load the relevant section component statically without transition -->
+        <skills-bubbles v-if="activeSection === 'home'"></skills-bubbles>
+        <component :is="currentComponent"></component>
       </div>
     </main>
-
-    <!-- Skills Hive Section at the bottom -->
-    <div class="skills-container">
-      <SkillsHive />
-    </div>
   </div>
 </template>
 
 <script>
-import SkillsHive from "./components/SkillsHive.vue";
-import Education from "./components/Education.vue"; // Import your content components
-import Contact from "./components/Contact.vue"; // Import the Contact component
-import Projects from "./components/Projects.vue"; // Import ProjectsComponent
-import WorkExperience from "./components/WorkExperience.vue"; // Import WorkExperience
+import Education from "./components/Education.vue";
+import Contact from "./components/Contact.vue";
+import Projects from "./components/Projects.vue";
+import WorkExperience from "./components/WorkExperience.vue";
+import SkillsBubbles from "./components/SkillsBubbles.vue"; // Import the SkillsBubbles component
 
 export default {
   components: {
-    SkillsHive,
     Education,
     Contact,
     Projects,
-    WorkExperience, // Register WorkExperience component
+    WorkExperience,
+    SkillsBubbles,
   },
   data() {
     return {
-      isProfileColumnLayout: false,
-      currentComponent: null,  // To dynamically load content
+      currentComponent: null,  // Static content to load
       activeSection: 'home',   // Track the currently active section
     };
   },
   methods: {
     goToSection(section) {
       console.log(`Navigating to ${section}`);
-      
-      // Set the profile layout and dynamic content based on the selected section
-      if (section === 'home') {
-        this.isProfileColumnLayout = false;
-        this.currentComponent = null; // Clear content when on home
-      } else {
-        this.isProfileColumnLayout = true; // Set to column layout
-        this.currentComponent = this.getComponentForSection(section); // Dynamically set content
-      }
-
-      this.activeSection = section; // Update the active section
+      this.currentComponent = this.getComponentForSection(section);
+      this.activeSection = section;
     },
     getComponentForSection(section) {
       switch (section) {
         case 'education':
           return Education;
         case 'projects':
-          return Projects; // Add your Projects component here
+          return Projects;
         case 'workExperience':
-          return WorkExperience; // Add your WorkExperience component here
-        case 'contact':
-          return Contact; // Load the Contact component dynamically
+          return WorkExperience;
         default:
           return null;
       }
@@ -115,37 +95,34 @@ export default {
 .app-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   background-image: url('@/assets/background1.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: black;
-  overflow-x: hidden; /* Prevent horizontal overflow */
-}
-
-/* Apply overflow-x:hidden to body */
-body {
-  overflow-x: hidden; /* Ensure there's no horizontal scrolling */
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 /* Floating options at the top */
 .floating-options {
   display: flex;
-  justify-content: center; /* Center the options horizontally */
-  align-items: center; /* Vertically center the options within the container */
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   position: fixed;
   top: 10px;
-  left: 50%; /* Move the container to the center horizontally */
-  transform: translateX(-50%); /* Correct the position to truly center it */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
-  background-color: rgba(3, 31, 58, 1); /* Background color for the options */
-  padding: 10px 20px; /* Add some padding around the options */
-  font-family: cursive;
+  background-color: rgba(3, 31, 58, 1);
+  padding: 10px 10px;
+  font-family: Arial, Helvetica, sans-serif;
   border-radius: 50px;
 }
+
 button {
   padding: 15px 30px;
   border-radius: 25px;
@@ -153,8 +130,7 @@ button {
   font-weight: bold;
   background-color: transparent;
   text-decoration-thickness: 2px;
-  color:azure;
-  transition: background-color 0.3s, color 0.3s, border-bottom 0.3s;
+  color: azure;
   border: none;
 }
 
@@ -175,83 +151,66 @@ button.active {
   display: flex;
   margin-top: 30px;
   padding: 50px;
-  overflow-y: auto;
-  font-family: cursive;
-  justify-content: flex-start;  
-  gap: 20px;
-  width: 100%; /* Ensure full width is used */
-  max-width: 100vw; /* Prevent content from exceeding the viewport width */
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
-  height: 100%; /* Take full height for vertical centering */
+  flex-direction: row; /* Default layout with horizontal rows */
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  justify-content: space-between; /* Distribute space between profile and content */
 }
 
 /* Profile Section */
 .profile-section {
   display: flex;
-  align-items: center; /* Vertically center the profile content */
-  justify-content: center; /* Horizontally center the profile content */
-  text-align: center; 
-  margin-bottom: 30px;
-  transition: flex-direction 0.9s ease, width 0.9s ease, margin-top 0.9s ease;
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
-  width: 100vw; /* Occupy full width in home mode */
-  height: 80vh; /* Take full height for vertical centering */
-}
-
-/* Column layout for profile when selected */
-.column-layout {
   flex-direction: column;
-  width: 30%; /* Set width when column layout is active */
-  margin-top: 0;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: flex-start; /* Align profile content to the top */
   text-align: left;
-}
-
-/* Home layout (full width) */
-.home-layout {
-  width: 100vw; /* Ensure it spans the entire screen in home mode */
+  width: 30%; /* Occupy 30% of the width */
+  height: 80vh; /* Limit the height */
+  z-index: 5; /* Keep it above other content */
 }
 
 /* Profile Info Styling */
 .profile-info {
   display: flex;
-  flex-direction: column; /* Stack text vertically */
+  flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .hi-text {
-  font-size: 3rem; /* Make Hi larger */
-  color: #007bff; /* Different color for "Hi" */
-  margin-right: 10px; /* Add some spacing between "Hi" and "I'm Pranay" */
+  font-size: 3rem;
+  color: #007bff;
+  margin-right: 10px;
 }
 
 .name-text {
-  font-size: 2rem; /* Set a normal font size for "I'm Pranay" */
+  font-size: 2rem;
   color: black;
 }
 
 .about-me {
-  margin-top: 20px; /* Add some space between the name and the about me text */
+  margin-top: 20px;
   font-size: 1.2rem;
-  color: #333; /* Darker color for the about me text */
+  color: #333;
 }
 
 /* Content Section */
 .content-section {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-y: auto; /* Allow scrolling in the content section */
   align-items: center;
-  padding: 20px;
-  flex-grow: 1; 
-  width: 80vw; /* Set content section width to 80% of viewport */
-  max-width: 100%; /* Prevent content from exceeding the viewport width */
-  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  padding: 10px;
+  width: 65%; /* Occupy 60% of the width */
+  height: 80vh; /* Limit the height */
+  box-sizing: border-box;
 }
 
 /* Profile Picture */
 .profile-pic-container {
+  height: 40vh;
   margin-right: 30px;
 }
 
@@ -260,24 +219,48 @@ button.active {
   height: 100%;
 }
 
-/* Skills section fixed at the bottom */
-.skills-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  z-index: 5;
-}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  /* Stack the sections vertically on mobile */
+  .app-container{
+    height: auto;
+  }
+  .main-content {
+    flex-direction: column; /* Stack profile and content sections vertically */
+    padding: 20px; /* Add some padding for mobile */
+  }
 
-/* Transition styling */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.9s ease-in-out;
-}
+  /* Profile section */
+  .profile-section {
+    position: relative;
+    width: fit-content;
+    height: auto; /* Allow the height to adjust */
+    margin-bottom: 30px; /* Add some space between profile and content */
+  }
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+  /* Content section */
+  .content-section {
+    width: 100%; /* Occupy the full width */
+    height: auto; /* Allow the height to adjust */
+  }
+
+  /* Floating options should stay at the top */
+  .floating-options {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    width: 90vw; /* Ensure it fits within the screen */
+  }
+  button {
+  padding: 5px 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: transparent;
+  text-decoration-thickness: 2px;
+  border: none;
+}
 }
 </style>

@@ -10,7 +10,7 @@
           <h2 class="university-name">{{ universityName1 }}</h2>
           <p class="degree">Degree: {{ degree1 }}</p>
           <p class="major">Major: {{ major1 }}</p>
-          <p class="gpa">GPA: {{ gpa1 }}</p>
+          <p class="concentration">Concentration: {{ concentration1 }}</p>
         </div>
         <div class="timeline-container">
           <div class="timeline"></div>
@@ -30,7 +30,6 @@
           <h2 class="university-name">{{ universityName2 }}</h2>
           <p class="degree">Degree: {{ degree2 }}</p>
           <p class="major">Major: {{ major2 }}</p>
-          <p class="gpa">GPA: {{ gpa2 }}</p>
         </div>
         <div class="timeline-container">
           <div class="timeline"></div>
@@ -49,8 +48,8 @@
       </div>
       <div class="certifications-list">
         <div v-for="(certification, index) in certifications" :key="index" class="certification-item">
-          <span class="certification-name">{{ certification.name }}</span>
           <img :src="certification.icon" alt="Certificate Icon" class="certification-icon" />
+          <span class="certification-name">{{ certification.name }}</span>
         </div>
       </div>
     </div>
@@ -67,6 +66,7 @@ export default {
       degree1: "Master of Information Technology & Management",
       major1: 'Information Technology & Management',
       gpa1: '4/4',
+      concentration1: 'Software Development',
       StartYear1: '2023',
       EndYear1: '2025',
 
@@ -75,7 +75,6 @@ export default {
       universityName2: 'B V Raju Institute of Technology, Telangana, India',
       degree2: 'Bachelor of Technology',
       major2: 'Electrical & Electronics Engineering',
-      gpa2: '3.42/4', // GPA not provided for the second university
       StartYear2: '2018',
       EndYear2: '2022',    
     
@@ -100,17 +99,18 @@ export default {
 </script>
 
 <style scoped>
+*{
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.page-wrapper{
+  width: 100%;
+}
 .education-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  gap: 20px;
-  width: 100%; /* Make the container occupy 70% of the page width */
-  max-height: 400px; /* Ensure the container doesn't exceed a certain height */
-  overflow-y: auto; /* Add scrolling if content exceeds the container's height */
-  box-sizing: border-box;
-  margin-left: auto; /* Align the container to the right side */
+  gap: 15px;
+  width: 100%;
+  margin: 0px;
 }
 
 .university-info {
@@ -121,8 +121,7 @@ export default {
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: 100%;
-  box-sizing: border-box;
+  width: auto;
   height: auto;
   overflow: hidden;
 }
@@ -133,8 +132,8 @@ export default {
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
 }
 
 .education-details {
@@ -148,12 +147,12 @@ export default {
   font-size: 20px;
   font-weight: bold;
   margin: 0;
-  color: #333;
+  color: #00152b;
 }
 
 .degree,
 .major,
-.gpa {
+.concentration{
   font-size: 14px;
   margin: 5px 0;
   color: #555;
@@ -161,44 +160,41 @@ export default {
 
 .timeline-container {
   display: flex;
-  align-items: center;
-  margin-top: 15px;
+  justify-content: space-between;
 }
 
 .timeline {
   width: 2px;
   height: 90px;
-  background-color: #3498db;
+  background-color: rgba(3, 31, 58, 1);;
   margin-right: 15px;
 }
 
 .timeline-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
-.start-year,
-.end-year {
-  font-size: 12px;
+.year {
+  font-size: 14px;
   color: #555;
   margin: 0;
 }
 
 /* Certifications Section */
 .certifications-container {
-  margin-top: 40px;
-  text-align: center;
+  margin-top: 20px;
   background-color: rgba(255, 255, 255, 0.4); /* Slightly transparent white background */
   padding: 20px;
+  width: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  margin-bottom: 50px;
-
 }
 .certifications-heading{
   background-color: rgba(3, 31, 58, 1);
   color: azure;
+  text-align: center;
   border-radius: 20px;
 }
 .certifications-list {
@@ -225,4 +221,41 @@ export default {
   height: 20px;
   margin-left: 10px;
 }
+@media (max-width: 768px) {
+  .university-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0;
+    color: #00152b;
+  }
+  .degree,
+  .major,
+  .gpa {
+    font-size: 12px;
+    margin: 5px 0;
+    color: #555;
+  }
+  .year {
+    font-size: 10px;
+    color: #555;
+    margin: 0;
+  }
+  .timeline-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .certification-item {
+    font-size: 12px;
+    color: #333;
+  }
+  .certifications-heading{
+    background-color: rgba(3, 31, 58, 1);
+    color: azure;
+    text-align: center;
+    border-radius: 20px;
+    font-size: 12px;
+  }
+}
+
 </style>
