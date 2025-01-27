@@ -36,7 +36,15 @@
         </div>
         <contact></contact>
       </div>
-
+      <!--scroll down arrow for mobile view-->
+      <div class="arrow_container">
+          <p>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <div class="chevron"></div>
+        <span class="text">Scroll down</span>
+          </p>
+      </div>
       <!-- Static Content Section -->
       <div class="content-section">
         <!-- Load the relevant section component statically without transition -->
@@ -105,7 +113,9 @@ export default {
   overflow-x: hidden;
   overflow-y: hidden;
 }
-
+.arrow_container{
+  visibility: hidden;
+}
 /* Floating options at the top */
 .floating-options {
   display: flex;
@@ -150,7 +160,8 @@ button.active {
 .main-content {
   display: flex;
   margin-top: 30px;
-  padding: 50px;
+  padding-top: 50px;
+  padding-left: 30px;
   flex-direction: row; /* Default layout with horizontal rows */
   width: 100%;
   height: 100%;
@@ -162,11 +173,11 @@ button.active {
 .profile-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* Align profile content to the top */
+  align-items:center;
+  justify-content:flex-start; /* Align profile content to the top */
   text-align: left;
-  width: 30%; /* Occupy 30% of the width */
-  height: 80vh; /* Limit the height */
+  width: 30vw; /* Occupy 30% of the width */
+  height: auto; /* Limit the height */
   z-index: 5; /* Keep it above other content */
 }
 
@@ -180,19 +191,19 @@ button.active {
 }
 
 .hi-text {
-  font-size: 3rem;
+  font-size: 45px;
   color: #007bff;
   margin-right: 10px;
 }
 
 .name-text {
-  font-size: 2rem;
+  font-size: 35px;
   color: black;
 }
 
 .about-me {
-  margin-top: 20px;
-  font-size: 1.2rem;
+  margin-top: 0px;
+  font-size:20px;
   color: #333;
 }
 
@@ -203,20 +214,20 @@ button.active {
   overflow-y: auto; /* Allow scrolling in the content section */
   align-items: center;
   padding: 10px;
-  width: 65%; /* Occupy 60% of the width */
+  width: 65vw; /* Occupy 60% of the width */
   height: 80vh; /* Limit the height */
   box-sizing: border-box;
 }
 
 /* Profile Picture */
 .profile-pic-container {
-  height: 40vh;
+  height:220px;
   margin-right: 30px;
 }
 
 .profile-pic {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: 220px;  
 }
 
 /* Mobile responsiveness */
@@ -229,10 +240,89 @@ button.active {
     flex-direction: column; /* Stack profile and content sections vertically */
     padding: 20px; /* Add some padding for mobile */
   }
+  .arrow_container{
+    visibility:visible;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin:30px;
+    align-self: center;
+  }
+  .chevron {
+    position: absolute;
+    width: 28px;
+    height: 8px;
+    opacity: 0;
+    transform: scale3d(0.5, 0.5, 0.5);
+    animation: move 3s ease-out infinite;
+  }
+  .chevron:before,
+  .chevron:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 51%;
+    background: rgba(3, 31, 58, 1);
+  }
+  
+  .chevron:before {
+    left: 0;
+    transform: skew(0deg, 30deg);
+  }
+  
+  .chevron:after {
+    right: 0;
+    width: 50%;
+    transform: skew(0deg, -30deg);
+  }
+  .chevron:first-child {
+    animation: move 3s ease-out 1s infinite;
+  }
+  
+  .chevron:nth-child(2) {
+    animation: move 3s ease-out 2s infinite;
+  }
+  .text {
+    display: block;
+    margin-top: 75px;
+    margin-left: -30px;
+    font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+    font-size: 12px;
+    color: rgba(3, 31, 58, 1);
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.5;
+    animation: pulse 2s linear alternate infinite;
+  }
 
+  @keyframes pulse { 
+  to {
+      opacity: 1;
+    }
+  }
+  @keyframes move {
+    25% {
+      opacity: 1;
+  
+    }
+    33% {
+      opacity: 1;
+      transform: translateY(30px);
+    }
+    67% {
+      opacity: 1;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(55px) scale3d(0.5, 0.5, 0.5);
+    }
+  }
   /* Profile section */
   .profile-section {
-    position: relative;
+    flex-grow: 1;
+    justify-content: space-between;
     width: fit-content;
     height: auto; /* Allow the height to adjust */
     margin-bottom: 30px; /* Add some space between profile and content */
@@ -240,6 +330,7 @@ button.active {
 
   /* Content section */
   .content-section {
+    margin-top: 30px;
     width: 100%; /* Occupy the full width */
     height: auto; /* Allow the height to adjust */
   }
