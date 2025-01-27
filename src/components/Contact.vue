@@ -13,7 +13,7 @@
     <a href="tel:+13128683526">
       <i class="fas fa-phone"></i>
     </a>
-    <a href="/Resume.pdf" target="_blank">
+    <a href="/Pranay_Resume.pdf" target="_blank">
       <i class="fa-solid fa-file-lines"></i>
     </a>
   </div>
