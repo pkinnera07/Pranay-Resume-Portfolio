@@ -230,7 +230,6 @@ button.active {
     padding: 20px; /* Add some padding for mobile */
   }
 
-<<<<<<< HEAD
   /* Profile section */
   .profile-section {
     position: relative;
@@ -238,13 +237,6 @@ button.active {
     height: auto; /* Allow the height to adjust */
     margin-bottom: 30px; /* Add some space between profile and content */
   }
-=======
-/* Transition styling */
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease-in-out;
-}
->>>>>>> d71db71e3123de9b2f1f49386ac4dad37a31f43a
 
   /* Content section */
   .content-section {
