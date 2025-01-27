@@ -81,7 +81,7 @@ export default {
         },
         {
           name: 'Bank Transaction Management App',
-          image: require('@/assets/bankProject.png'),
+          image: require('@/assets/BankProject.png'),
           github: 'https://github.com/username/project2',
           status: 'completed',
           skills: ['Java', 'HTML', 'MySQL'],
