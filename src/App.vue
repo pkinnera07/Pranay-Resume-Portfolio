@@ -45,6 +45,24 @@
         <span class="text">Scroll down</span>
           </p>
       </div>
+      <div class="mobile-content">
+        <div class="mobile-section">
+          <p>SKILLS</p>
+          <SkillsBubbles></SkillsBubbles>
+        </div>
+        <div class="mobile-section">
+          <p>PROJECTS</p>
+        <Projects></Projects>
+      </div>
+      <div class="mobile-section">
+          <p>EDUCATION</p>
+        <Education></Education>
+      </div>
+      <div class="mobile-section">
+          <p>WORK EXPERIENCE</p>
+        <WorkExperience></WorkExperience>
+      </div>
+    </div>
       <!-- Static Content Section -->
       <div class="content-section">
         <!-- Load the relevant section component statically without transition -->
@@ -115,6 +133,9 @@ export default {
 }
 .arrow_container{
   visibility: hidden;
+}
+.mobile-content{
+  display: none;
 }
 /* Floating options at the top */
 .floating-options {
@@ -240,6 +261,26 @@ button.active {
     flex-direction: column; /* Stack profile and content sections vertically */
     padding: 20px; /* Add some padding for mobile */
   }
+  .mobile-content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 30px;
+  }
+
+  .mobile-section p{
+    align-items: center;
+    margin-top: 30px;
+    z-index: 10;
+    width: auto;
+    text-align: center;
+    color: azure;
+    font-weight: bold;
+    background-color: rgba(3, 31, 58, 1);
+    padding: 10px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 30px;
+  }
   .arrow_container{
     visibility:visible;
     position: relative;
@@ -330,28 +371,12 @@ button.active {
 
   /* Content section */
   .content-section {
-    margin-top: 30px;
-    width: 100%; /* Occupy the full width */
-    height: auto; /* Allow the height to adjust */
+    display:none;
   }
 
   /* Floating options should stay at the top */
   .floating-options {
-    position: fixed;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 15;
-    width: 90vw; /* Ensure it fits within the screen */
+    display: none;
   }
-  button {
-  padding: 5px 10px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  background-color: transparent;
-  text-decoration-thickness: 2px;
-  border: none;
-}
 }
 </style>

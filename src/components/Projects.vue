@@ -80,9 +80,16 @@ export default {
           skills: ['MySQL', 'Java', 'HTML', 'CSS'],
         },
         {
+          name: 'Personal Resume Webpage',
+          image: require('@/assets/portfolio.png'),
+          github: 'https://github.com/pkinnera07/Pranay-Resume-Portfolio',
+          status: 'completed',
+          skills: ['Vue Js', 'CSS', 'HTML'],
+        },
+        {
           name: 'Bank Transaction Management App',
           image: require('@/assets/BankProject.png'),
-          github: 'https://github.com/username/project2',
+          github: 'https://github.com/pkinnera07/Bank-Transaction-Mgmt-App',
           status: 'completed',
           skills: ['Java', 'HTML', 'MySQL'],
         },

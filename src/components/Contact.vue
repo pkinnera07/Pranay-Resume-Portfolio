@@ -4,10 +4,10 @@
     <a href="https://www.linkedin.com/in/pranay-kumar-kinnera" target="_blank">
       <i class="fab fa-linkedin"></i>
     </a>
-    <a href="https://github.com/your-github" target="_blank">
+    <a href="https://github.com/pkinnera07" target="_blank">
       <i class="fab fa-github"></i>
     </a>
-    <a href="mailto:pkinnera@hawk.iit.edu">
+    <a href="mailto:kpranaykumar0707@gmail.com">
       <i class="fas fa-envelope"></i>
     </a>
     <a href="tel:+13128683526">

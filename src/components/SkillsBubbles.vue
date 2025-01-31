@@ -66,7 +66,7 @@ body {
 .wrapper {
   width: 100%;
   max-width: 100%;
-  margin: 3em auto;
+  margin: 0px;
   text-align: center;
 }
 
@@ -112,8 +112,8 @@ body {
   text-align: center;
   transform: translateX(-50%);
   color: rgb(2, 48, 71);
-  background-color: rgba(255, 255, 255, 0.4);
   font-size: 14px;
+  font-weight: bold;
   opacity: 0;
   width: max-content;
   pointer-events: none;
