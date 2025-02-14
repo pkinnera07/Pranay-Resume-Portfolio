@@ -15,12 +15,11 @@
         </div>
       </article>
     </div>
-    <div class="divider"></div>
     <div class="guide">
       <p class="languages">Programming Languages</p>
+      <p class="frontend">Frontend Development</p>
+      <p class="backend">Backend Development</p>
       <p class="tools">Development Tools</p>
-      <p class="frameworks">Frameworks</p>
-      <p class="others">Others</p>
     </div>
   </main>
 </template>
@@ -30,21 +29,38 @@ export default {
   data() {
     return {
       skillLogos: [
-        { src: require('@/assets/js.png'), alt: "JavaScript", category: "Languages" },
         { src: require('@/assets/python.png'), alt: "Python", category: "Languages" },
         { src: require('@/assets/java.png'), alt: "Java", category: "Languages" },
-        { src: require('@/assets/embeddedc.png'), alt: "Embedded C", category: "Languages" },
-        { src: require('@/assets/html.png'), alt: "HTML", category: "Languages" },
-        { src: require('@/assets/c.png'), alt: "C", category: "Languages" },
-        { src: require('@/assets/css.png'), alt: "CSS", category: "Languages" },
         { src: require('@/assets/ruby.png'), alt: "Ruby", category: "Languages" },
-        { src: require('@/assets/vue.png'), alt: "Vue Js", category: "Frameworks" },
-        { src: require('@/assets/cn.png'), alt: "Computer Networks", category: "Others" },
-        { src: require('@/assets/mysql.png'), alt: "MySQL", category: "Tools" },
+        { src: require('@/assets/c.png'), alt: "C", category: "Languages" },
+        { src: require('@/assets/c#.png'), alt: "C#", category: "Languages" },
+        { src: require('@/assets/embeddedc.png'), alt: "Embedded C", category: "Languages" },
+
+        { src: require('@/assets/html.png'), alt: "HTML", category: "Frontend" },
+        { src: require('@/assets/css.png'), alt: "CSS", category: "Frontend" },
+        { src: require('@/assets/js.png'), alt: "JavaScript", category: "Frontend" },
+        { src: require('@/assets/vue.png'), alt: "Vue Js", category: "Frontend" },
+        { src: require('@/assets/react.png'), alt: "React", category: "Frontend" },
+        { src: require('@/assets/bootstrap.png'), alt: "Bootstrap", category: "Frontend" },
+        { src: require('@/assets/typescript.png'), alt: "TypeScript", category: "Frontend" },
+        { src: require('@/assets/tailwind.png'), alt: "Tailwind CSS", category: "Frontend" },
+
+        { src: require('@/assets/nodejs.png'), alt: "Node.js", category: "Backend" },
+        { src: require('@/assets/expressjs.png'), alt: "Express.js", category: "Backend" },
+        { src: require('@/assets/rails.png'), alt: "Ruby on Rails", category: "Backend" },
+        { src: require('@/assets/mongodb.png'), alt: "MongoDB", category: "Backend" },
+        { src: require('@/assets/mysql.png'), alt: "MySQL", category: "Backend" },
+
+        { src: require('@/assets/docker.png'), alt: "Docker", category: "Tools" },
+        { src: require('@/assets/kubernetes.png'), alt: "Kubernetes ", category: "Tools" },
         { src: require('@/assets/git.png'), alt: "Git", category: "Tools" },
         { src: require('@/assets/github.png'), alt: "GitHub", category: "Tools" },
-        { src: require('@/assets/simulink.png'), alt: "Simulink", category: "Tools" },
-        { src: require('@/assets/matlab.png'), alt: "Matlab", category: "Tools" }
+        // { src: require('@/assets/azure.png'), alt: "Azure ", category: "Tools" },
+        { src: require('@/assets/selenium.png'), alt: "Selenium ", category: "Tools" },
+        // { src: require('@/assets/simulink.png'), alt: "Simulink", category: "Tools" },
+        // { src: require('@/assets/matlab.png'), alt: "Matlab", category: "Tools" },
+
+
       ]
     };
   }
@@ -65,25 +81,15 @@ body {
 /* Wrapper */
 .wrapper {
   width: 100%;
-  max-width: 100%;
   margin: 0px;
   text-align: center;
-}
-
-/* Container for all badges */
-.badge-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  max-height: 80vh; /* Limit the scrolling area height */
 }
 
 /* Badge */
 .badge {
   margin: 10px 10px;
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
   border-radius: 20%;
   display: inline-block;
   position: relative;
@@ -93,11 +99,11 @@ body {
 }
 
 .rounded {
-  width: 70px;
-  height: 70px;
+  width: 66px;
+  height: 66px;
   background: white;
   position: absolute;
-  margin: 10px 10px auto;
+  margin: 7px 7px auto;
   z-index: 10;
   border-radius: 50%;
   box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.23);
@@ -138,41 +144,42 @@ body {
 /* Badge Layout */
 .badge-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 icons per row */
+  grid-template-columns: repeat(6, 1fr); /* 5 icons per row */
   gap: 5px;
-}
-
-.divider {
-  background-color: rgb(0, 29, 42, 0.6);
-  height: 1px;
+  flex-grow: 1;
+  margin-bottom: 20px;
 }
 
 .guide {
   display: flex;
+  bottom: 0;
+  position: fixed;
+  width: 60%;
   justify-content: space-between;
   height: fit-content;
 }
 
-.tools, .languages, .frameworks, .others {
-  padding: 10px;
+.tools, .languages, .frontend, .backend {
+  padding: 3px;
+  padding-inline: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.43);
 }
 
 /* Colors */
 .badge-Tools, .tools {
-  background-color: rgb(0, 31, 63, 0.7);
+  background-color: rgba(22, 234, 216, 0.737);
 }
 
 .badge-Languages, .languages {
   background: rgb(191, 219, 247, 0.7);
 }
 
-.badge-Frameworks, .frameworks {
+.badge-Frontend, .frontend {
   background: rgb(4, 150, 255, 0.7);
 }
 
-.badge-Others, .others {
+.badge-Backend, .backend {
   background: #fffb024c;
 }
 
@@ -185,20 +192,24 @@ body {
   }
   .badge-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 5 icons per row */
+    grid-template-columns: repeat(4, 1fr); /* 5 icons per row */
     gap: 0px;
     align-items: center;
     }
 
   .guide {
     display: flex;
+    position: relative;
+    width: 100%;
+    margin: 0px;
     justify-content: space-between;
     height: fit-content;
     font-size: 6pt;
+    gap: 5px;
   }
 
-  .tools, .languages, .frameworks, .others {
-    padding: 5px;
+  .tools, .languages, .frontend, .backend {
+    padding: 3px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.43);
   }

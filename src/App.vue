@@ -32,37 +32,35 @@
             <span class="hi-text">Hi!</span> 
             <span class="name-text">I'm Pranay</span>
           </h1>
-          <p class="about-me">I am a curious software developer with experience in various technologies. I love solving problems and building impactful solutions!</p>
+          <p class="about-me">I’m a curious full-stack developer with over 4 years of experience in software development. I love solving challenges and building impactful, user-driven applications that make a difference!</p>
         </div>
         <contact></contact>
       </div>
       <!--scroll down arrow for mobile view-->
       <div class="arrow_container">
-          <p>
-        <div class="chevron"></div>
-        <div class="chevron"></div>
-        <div class="chevron"></div>
+        <div>
+          <p class="chevron"></p>
+          <p class="chevron"></p>
+          <p class="chevron"></p>
+        </div>
         <span class="text">Scroll down</span>
-          </p>
       </div>
+      <!-- Mobile Content Sections -->
       <div class="mobile-content">
-        <div class="mobile-section">
-          <p>SKILLS</p>
+        <div class="mobile-section" id="home">
           <SkillsBubbles></SkillsBubbles>
         </div>
-        <div class="mobile-section">
-          <p>PROJECTS</p>
-        <Projects></Projects>
+        <div class="mobile-section" id="projects">
+          <Projects></Projects>
+        </div>
+        <div class="mobile-section" id="education">
+          <Education></Education>
+        </div>
+        <div class="mobile-section" id="workExperience">
+          <WorkExperience></WorkExperience>
+        </div>
       </div>
-      <div class="mobile-section">
-          <p>EDUCATION</p>
-        <Education></Education>
-      </div>
-      <div class="mobile-section">
-          <p>WORK EXPERIENCE</p>
-        <WorkExperience></WorkExperience>
-      </div>
-    </div>
+
       <!-- Static Content Section -->
       <div class="content-section">
         <!-- Load the relevant section component statically without transition -->
@@ -92,6 +90,7 @@ export default {
     return {
       currentComponent: null,  // Static content to load
       activeSection: 'home',   // Track the currently active section
+      selectedOption: 'home'
     };
   },
   methods: {
@@ -99,6 +98,14 @@ export default {
       console.log(`Navigating to ${section}`);
       this.currentComponent = this.getComponentForSection(section);
       this.activeSection = section;
+      // Find the target section and scroll to it
+      const targetElement = document.getElementById(section);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     },
     getComponentForSection(section) {
       switch (section) {
@@ -112,6 +119,33 @@ export default {
           return null;
       }
     },
+
+    setupIntersectionObserver() {
+      // Intersection Observer to track when sections come into view
+      const observerOptions = {
+        root: null, // observing from the viewport
+        rootMargin: '0px',
+        threshold: 0.5 // 50% visibility to consider section "in view"
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.activeSection = entry.target.id; // Set the active section
+          }
+        });
+      }, observerOptions);
+
+      // Target all sections that should trigger highlighting
+      const sections = document.querySelectorAll('.mobile-section');
+      sections.forEach(section => {
+        observer.observe(section); // Observe each section
+      });
+    }
+  },
+
+  mounted() {
+    this.setupIntersectionObserver();
   },
 };
 </script>
@@ -137,6 +171,9 @@ export default {
 .mobile-content{
   display: none;
 }
+.dropdown{
+  display: none;
+}
 /* Floating options at the top */
 .floating-options {
   display: flex;
@@ -147,7 +184,7 @@ export default {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 10;
+  z-index: 15;
   background-color: rgba(3, 31, 58, 1);
   padding: 10px 10px;
   font-family: Arial, Helvetica, sans-serif;
@@ -200,6 +237,7 @@ button.active {
   width: 30vw; /* Occupy 30% of the width */
   height: auto; /* Limit the height */
   z-index: 5; /* Keep it above other content */
+  overflow:auto;
 }
 
 /* Profile Info Styling */
@@ -210,7 +248,10 @@ button.active {
   justify-content: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-
+h1 {
+  margin: 0px;
+  align-self: center;
+}
 .hi-text {
   font-size: 45px;
   color: #007bff;
@@ -224,7 +265,7 @@ button.active {
 
 .about-me {
   margin-top: 0px;
-  font-size:20px;
+  font-size:19px;
   color: #333;
 }
 
@@ -236,14 +277,13 @@ button.active {
   align-items: center;
   padding: 10px;
   width: 65vw; /* Occupy 60% of the width */
-  height: 80vh; /* Limit the height */
+  height: 85%; /* Limit the height */
   box-sizing: border-box;
 }
 
 /* Profile Picture */
 .profile-pic-container {
   height:220px;
-  margin-right: 30px;
 }
 
 .profile-pic {
@@ -261,6 +301,21 @@ button.active {
     flex-direction: column; /* Stack profile and content sections vertically */
     padding: 20px; /* Add some padding for mobile */
   }
+  .dropdown{
+    display: block;
+    margin-top: 0px;
+    z-index: 15;
+  }
+  .dropdown select {
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+    background-color: rgba(3, 31, 58, 1);
+    text-decoration-thickness: 2px;
+    color: azure;
+    position: fixed;
+
+  }
   .mobile-content{
     display: flex;
     flex-direction: column;
@@ -268,18 +323,13 @@ button.active {
     gap: 30px;
   }
 
-  .mobile-section p{
-    align-items: center;
-    margin-top: 30px;
+  .mobile-section{
+    padding-top: 70px;
+    height: auto;
     z-index: 10;
     width: auto;
-    text-align: center;
-    color: azure;
-    font-weight: bold;
-    background-color: rgba(3, 31, 58, 1);
-    padding: 10px 10px;
+    border-color: rgba(3, 31, 58, 1);
     font-family: Arial, Helvetica, sans-serif;
-    border-radius: 30px;
   }
   .arrow_container{
     visibility:visible;
@@ -376,7 +426,34 @@ button.active {
 
   /* Floating options should stay at the top */
   .floating-options {
-    display: none;
+    position: fixed;
+    top: 0px;
+    gap: 0px;
+    z-index: 15;
+    background-color: rgba(3, 31, 58, 1);
+    padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 50px;
+    width: 90vw;
+    justify-content: space-between;
+  }
+  button {
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: transparent;
+    text-decoration-thickness: 2px;
+    color: azure;
+    border: none;
+  }
+  button:hover {
+    color: azure;
+    background-color: rgba(3, 31, 58, 1);
+  }
+  button.active:hover {
+    background-color: azure;
+    color: rgba(3, 31, 58, 1);
   }
 }
 </style>
