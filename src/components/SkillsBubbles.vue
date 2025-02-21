@@ -89,6 +89,7 @@ body {
   margin: 10px 10px;
   width: 80px;
   height: 80px;
+  margin-inline: 15px;
   border-radius: 20%;
   display: inline-block;
   position: relative;
@@ -144,11 +145,11 @@ body {
 .badge-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr); /* 5 icons per row */
-  gap: 20px;
+  gap: 5px;
   margin-inline: auto;
   align-self: center;
   width: fit-content;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .guide {
