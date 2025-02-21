@@ -32,6 +32,9 @@
                 title="in-progress"
               />
               <span v-if="project.status === 'in-progress'" class="status-text">In Progress</span>
+              <a v-if="project.live === 'live'" :href="project.website" target="_blank" class="github-link">
+                <img src="@/assets/sitelink.png" alt="Visit Site" class="github-icon" />
+              </a>
             </div>
           </h3>
           <div class="skills-used">
@@ -55,23 +58,47 @@ export default {
   data() {
     return {
       skillLogos: [
-        { src: require('@/assets/js.png'), alt: "JavaScript", category: "Languages" },
         { src: require('@/assets/python.png'), alt: "Python", category: "Languages" },
         { src: require('@/assets/java.png'), alt: "Java", category: "Languages" },
-        { src: require('@/assets/embeddedc.png'), alt: "Embedded C", category: "Languages" },
-        { src: require('@/assets/html.png'), alt: "HTML", category: "Languages" },
-        { src: require('@/assets/c.png'), alt: "C", category: "Languages" },
-        { src: require('@/assets/css.png'), alt: "CSS", category: "Languages" },
         { src: require('@/assets/ruby.png'), alt: "Ruby", category: "Languages" },
-        { src: require('@/assets/vue.png'), alt: "Vue Js", category: "Frameworks" },
-        { src: require('@/assets/cn.png'), alt: "Computer Networks", category: "Others" },
-        { src: require('@/assets/mysql.png'), alt: "MySQL", category: "Tools" },
+        { src: require('@/assets/c.png'), alt: "C", category: "Languages" },
+        { src: require('@/assets/c#.png'), alt: "C#", category: "Languages" },
+        { src: require('@/assets/embeddedc.png'), alt: "Embedded C", category: "Languages" },
+
+        { src: require('@/assets/html.png'), alt: "HTML", category: "Frontend" },
+        { src: require('@/assets/css.png'), alt: "CSS", category: "Frontend" },
+        { src: require('@/assets/js.png'), alt: "JavaScript", category: "Frontend" },
+        { src: require('@/assets/vue.png'), alt: "Vue Js", category: "Frontend" },
+        { src: require('@/assets/react.png'), alt: "React", category: "Frontend" },
+        { src: require('@/assets/bootstrap.png'), alt: "Bootstrap", category: "Frontend" },
+        { src: require('@/assets/typescript.png'), alt: "TypeScript", category: "Frontend" },
+        { src: require('@/assets/tailwind.png'), alt: "Tailwind CSS", category: "Frontend" },
+
+        { src: require('@/assets/nodejs.png'), alt: "Node.js", category: "Backend" },
+        { src: require('@/assets/expressjs.png'), alt: "Express.js", category: "Backend" },
+        { src: require('@/assets/rails.png'), alt: "Ruby on Rails", category: "Backend" },
+        { src: require('@/assets/mongodb.png'), alt: "MongoDB", category: "Backend" },
+        { src: require('@/assets/mysql.png'), alt: "MySQL", category: "Backend" },
+
+        { src: require('@/assets/docker.png'), alt: "Docker", category: "Tools" },
+        { src: require('@/assets/kubernetes.png'), alt: "Kubernetes ", category: "Tools" },
         { src: require('@/assets/git.png'), alt: "Git", category: "Tools" },
         { src: require('@/assets/github.png'), alt: "GitHub", category: "Tools" },
+        { src: require('@/assets/azure.png'), alt: "Azure", category: "Tools" },
+        { src: require('@/assets/selenium.png'), alt: "Selenium ", category: "Tools" },
         { src: require('@/assets/simulink.png'), alt: "Simulink", category: "Tools" },
-        { src: require('@/assets/matlab.png'), alt: "Matlab", category: "Tools" }
+        { src: require('@/assets/matlab.png'), alt: "Matlab", category: "Tools" },
       ],
       projects: [
+        {
+          name: 'Game Dimension',
+          image: require('@/assets/gameDimension.png'),
+          github: 'https://github.com/pkinnera07/games-website',
+          status: 'completed',
+          live: 'live',
+          website: 'https://game-dimension.netlify.app/',
+          skills: ['React', 'CSS'],
+        },
         {
           name: 'Dairy Business Web Application',
           image: require('@/assets/dairyProject.png'),
@@ -84,14 +111,14 @@ export default {
           image: require('@/assets/portfolio.png'),
           github: 'https://github.com/pkinnera07/Pranay-Resume-Portfolio',
           status: 'completed',
-          skills: ['Vue Js', 'CSS', 'HTML'],
+          skills: ['Vue Js', 'Azure', 'CSS'],
         },
         {
           name: 'Bank Transaction Management App',
           image: require('@/assets/BankProject.png'),
           github: 'https://github.com/pkinnera07/Bank-Transaction-Mgmt-App',
           status: 'completed',
-          skills: ['Java', 'HTML', 'MySQL'],
+          skills: ['Java', 'MySQL'],
         },
         {
           name: 'EV Charging Point Monitoring',

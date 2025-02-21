@@ -36,8 +36,8 @@ export default {
         { src: require('@/assets/c#.png'), alt: "C#", category: "Languages" },
         { src: require('@/assets/embeddedc.png'), alt: "Embedded C", category: "Languages" },
 
-        { src: require('@/assets/html.png'), alt: "HTML", category: "Frontend" },
-        { src: require('@/assets/css.png'), alt: "CSS", category: "Frontend" },
+        //{ src: require('@/assets/html.png'), alt: "HTML", category: "Frontend" },
+        //{ src: require('@/assets/css.png'), alt: "CSS", category: "Frontend" },
         { src: require('@/assets/js.png'), alt: "JavaScript", category: "Frontend" },
         { src: require('@/assets/vue.png'), alt: "Vue Js", category: "Frontend" },
         { src: require('@/assets/react.png'), alt: "React", category: "Frontend" },
@@ -47,14 +47,14 @@ export default {
 
         { src: require('@/assets/nodejs.png'), alt: "Node.js", category: "Backend" },
         { src: require('@/assets/expressjs.png'), alt: "Express.js", category: "Backend" },
-        { src: require('@/assets/rails.png'), alt: "Ruby on Rails", category: "Backend" },
+        //{ src: require('@/assets/rails.png'), alt: "Ruby on Rails", category: "Backend" },
         { src: require('@/assets/mongodb.png'), alt: "MongoDB", category: "Backend" },
         { src: require('@/assets/mysql.png'), alt: "MySQL", category: "Backend" },
 
         { src: require('@/assets/docker.png'), alt: "Docker", category: "Tools" },
         { src: require('@/assets/kubernetes.png'), alt: "Kubernetes ", category: "Tools" },
         { src: require('@/assets/git.png'), alt: "Git", category: "Tools" },
-        { src: require('@/assets/github.png'), alt: "GitHub", category: "Tools" },
+        //{ src: require('@/assets/github.png'), alt: "GitHub", category: "Tools" },
         // { src: require('@/assets/azure.png'), alt: "Azure ", category: "Tools" },
         { src: require('@/assets/selenium.png'), alt: "Selenium ", category: "Tools" },
         // { src: require('@/assets/simulink.png'), alt: "Simulink", category: "Tools" },
@@ -84,7 +84,6 @@ body {
   margin: 0px;
   text-align: center;
 }
-
 /* Badge */
 .badge {
   margin: 10px 10px;
@@ -144,9 +143,11 @@ body {
 /* Badge Layout */
 .badge-container {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 5 icons per row */
-  gap: 5px;
-  flex-grow: 1;
+  grid-template-columns: repeat(5, 1fr); /* 5 icons per row */
+  gap: 20px;
+  margin-inline: auto;
+  align-self: center;
+  width: fit-content;
   margin-bottom: 20px;
 }
 
@@ -187,7 +188,7 @@ body {
   .wrapper {
     width: 100%;
     max-width: 100%;
-    margin: 1em;
+    margin: 0;
     text-align: center;
   }
   .badge-container {
@@ -214,12 +215,12 @@ body {
     box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.43);
   }
   .badge {
-    width: 70px;
-    height: 70px;
-  }
-  .rounded {
     width: 60px;
     height: 60px;
+  }
+  .rounded {
+    width: 50px;
+    height: 50px;
     margin: 5px 5px auto;
   }
   .skill-icon {

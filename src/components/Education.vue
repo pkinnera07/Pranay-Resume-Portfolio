@@ -71,8 +71,8 @@ export default {
       EndYear1: '2025',
 
       // Second University
-      logoSrc2: require('@/assets/bvrju-logo.png'), // Path to the second university's logo
-      universityName2: 'B V Raju Institute of Technology, Telangana, India',
+      logoSrc2: require('@/assets/jntuh.png'), // Path to the second university's logo
+      universityName2: 'Jawaharlal Nehru Technological University Hyderabad, India',
       degree2: 'Bachelor of Technology',
       major2: 'Electrical & Electronics Engineering',
       StartYear2: '2018',
@@ -81,15 +81,19 @@ export default {
       // Certifications Data
       certifications: [
         { 
+          name: "JavaScript Algorithms and Data Structures", 
+          icon: require('@/assets/certificate-icon.png') 
+        },
+        { 
+          name: "PCAP: Programming Essentials in Python", 
+          icon: require('@/assets/certificate-icon.png') 
+        },
+        { 
           name: "CCNAv7: Introduction to Networks", 
           icon: require('@/assets/certificate-icon.png') 
         },
         { 
           name: "CCNAv7: Switching, Routing, and Wireless Essentials", 
-          icon: require('@/assets/certificate-icon.png') 
-        },
-        { 
-          name: "PCAP: Programming Essentials in Python", 
           icon: require('@/assets/certificate-icon.png') 
         }
       ]
