@@ -283,12 +283,12 @@ h1 {
 
 /* Profile Picture */
 .profile-pic-container {
-  height:220px;
+  height:200px;
 }
 
 .profile-pic {
   width: auto;
-  height: 220px;  
+  height: 200px;  
 }
 
 /* Mobile responsiveness */

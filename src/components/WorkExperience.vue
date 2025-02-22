@@ -108,7 +108,10 @@ h2 {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
+.job-block:hover{
+  transform: scale(1.01);
+  transition: 0.3s;
+}
 
 .job-info {
   display: flex;

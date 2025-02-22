@@ -1,6 +1,6 @@
 <template>
   <div class="projects-container">
-    <div class="project-block" v-for="(project, index) in projects" :key="index">
+    <div class="project-block" v-for="(project, index) in projects" :key="index" @click="toggleDetails(index)">
       <div class="project-info">
         <!-- Project Image Section -->
         <div class="project-logo">
@@ -48,12 +48,28 @@
             />
           </div>
         </div>
+        <div class="expand-toggle">
+          <img 
+            :src="project.showDetails ? upArrow : downArrow" 
+            alt="Expand/Collapse" 
+            class="expand-icon"
+          />
+        </div>
+      </div>
+      <div v-if="project.showDetails" class="project-details-expanded">
+        <ul>
+          <li v-for="(sentence, index) in project.details" :key="index">
+            {{ sentence }}
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import upArrow from '@/assets/upArrow.png';
+import downArrow from '@/assets/downArrow.png';
 export default {
   data() {
     return {
@@ -98,13 +114,20 @@ export default {
           live: 'live',
           website: 'https://game-dimension.netlify.app/',
           skills: ['React', 'CSS'],
+          showDetails: false,
+          details:["Developed an interactive gaming platform using React, integrating multiple puzzle and strategy games (e.g., Sudoku, Kakuro, Slide & Sort, and more).", 
+                   "Implemented dynamic routing, React hooks, custom components, and responsive design to enhance usability and performance."]
         },
         {
           name: 'Dairy Business Web Application',
           image: require('@/assets/dairyProject.png'),
           github: 'https://github.com/username/project1',
           status: 'in-progress',
-          skills: ['MySQL', 'Java', 'HTML', 'CSS'],
+          skills: ['MySQL', 'Java', 'Bootstrap', 'HTML', 'CSS'],
+          showDetails: false,
+          details:["Designing and developing a comprehensive Dairy Business Web application using Java EE and JSF, incorporating reusable templates and composite components to ensure maintainability and code reusability.", 
+                   "Implemented robust admin functionality for user creation and role assignment, including secure management of user roles and entity operations based on assigned permissions.", 
+                   "Crafting intuitive navigation, comprehensive validation, and Bootstrap-enhanced styling to ensure a user-friendly and visually appealing interface."]
         },
         {
           name: 'Personal Resume Webpage',
@@ -112,6 +135,9 @@ export default {
           github: 'https://github.com/pkinnera07/Pranay-Resume-Portfolio',
           status: 'completed',
           skills: ['Vue Js', 'Azure', 'CSS'],
+          showDetails: false,
+          details:["Created a responsive portfolio website using Vue.js, featuring dynamic navigation and smooth transitions across sections like home, projects, education, and work experience.", 
+                   "Implemented mobile-first design with modular components, ensuring seamless adaptation across devices with distinct styling for both mobile and desktop views."]
         },
         {
           name: 'Bank Transaction Management App',
@@ -119,6 +145,31 @@ export default {
           github: 'https://github.com/pkinnera07/Bank-Transaction-Mgmt-App',
           status: 'completed',
           skills: ['Java', 'MySQL'],
+          showDetails: false,
+          details:["Developed a secure & user-friendly JavaFX application using MVC architecture for managing financial transactions in a banking system. Implemented role-specific functionalities for administrators, staff, and users.",
+                   "Included cloud database integration for authentication and storage, responsive GUI for seamless navigation, comprehensive transaction tracking, and real-time balance updates."]
+        },
+        {
+          name: 'Net Banking Dashboard Design',
+          image: require('@/assets/netbanking.png'),
+          github: 'https://github.com/pkinnera07/NetBanking-Dashboard',
+          status: 'completed',
+          live: 'live',
+          website: 'https://pkinnera07.github.io/NetBanking-Dashboard',
+          skills: ['HTML', 'CSS', 'JavaScript'],
+          showDetails: false,
+          details:["This is a styled web dashboard for a net banking application. The page serves as a visual layout, simulating a banking portal with sections such as account details, transactions, transfers, and more."]
+        },
+        {
+          name: 'Link In Bio Page',
+          image: require('@/assets/linkinbio.png'),
+          github: 'https://github.com/pkinnera07/link-in-bio',
+          status: 'completed',
+          live: 'live',
+          website: 'https://pkinnera07.github.io/link-in-bio/',
+          skills: ['HTML', 'CSS', 'JavaScript'],
+          showDetails: false,
+          details:["This is a styled Link-In-Bio page that can be used as personal bio page."]
         },
         {
           name: 'EV Charging Point Monitoring',
@@ -126,6 +177,9 @@ export default {
           github: 'https://github.com/username/project3',
           status: 'completed',
           skills: ['Embedded C', 'Simulink', 'HTML'],
+          showDetails: false,
+          details:["Designed and Built a user-centric Level-2 electric vehicle charging point with a response time of less than 100 milliseconds for any operation, integrating a seamless QR code-based activation process.", 
+                   "Users scan QR code to access a web interface, input required charging duration, and receive confirmation. The system automatically activates and terminates charging based on user's selection, enhancing convenience and efficiency of EV charging."]
         }
       ]
     };
@@ -135,6 +189,18 @@ export default {
     getSkillLogo(skill) {
       const skillLogo = this.skillLogos.find(logo => logo.alt === skill);
       return skillLogo ? skillLogo.src : ''; // Return the src if found, otherwise return an empty string
+    },
+    toggleDetails(index) {
+      this.projects[index].showDetails = !this.projects[index].showDetails;
+    }
+  },
+  computed: {
+    // Add up and down arrow images for each project
+    upArrow() {
+      return upArrow;
+    },
+    downArrow() {
+      return downArrow;
     }
   }
 };
@@ -162,6 +228,38 @@ export default {
   background-color: rgba(255, 255, 255, 0.4); /* Transparent white background */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-block:hover{
+  transform: scale(1.01);
+  transition: 0.3s;
+}
+
+.expand-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.expand-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.project-block:hover .expand-icon {
+  transform: scale(1.1);
+}
+
+/* Expanded project details section */
+.project-details-expanded {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #333;
 }
 
 /* Project Info Section */
@@ -208,8 +306,8 @@ export default {
 }
 
 .status-icon {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   margin-left: 5px;
 }
 

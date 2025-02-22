@@ -116,6 +116,10 @@ export default {
   width: 100%;
   margin: 0px;
 }
+.university-info:hover {
+  transform: scale(1.01);
+  transition: 0.3s;
+}
 
 .university-info {
   display: flex;
