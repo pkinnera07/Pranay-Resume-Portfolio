@@ -50,7 +50,7 @@ export default {
           company: "LTIMindtree Ltd.",
           location: "Hyderabad, India",
           startDate: "Jul 2022",
-          endDate: "Oct 2023",
+          endDate: "Oct 2022",
           logo: require('@/assets/lti.png'), // Example logo for the job
           responsibilities: [
             "Worked on data warehousing & integration with ETL processes.",
@@ -111,6 +111,8 @@ h2 {
 .job-block:hover{
   transform: scale(1.01);
   transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
 }
 
 .job-info {
@@ -185,7 +187,18 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
 }
-
+.app-container.dark .job-block{
+  background-color: rgba(255, 255, 255, 0.215); /* Transparent white background */
+  color: azure;
+}
+.app-container.dark .job-title,
+.app-container.dark .company-name,
+.app-container.dark .year{
+  color: azure;
+}
+.app-container.dark .timeline{
+  background-color: azure;
+}
 @media (max-width: 768px) {
 
   .year {

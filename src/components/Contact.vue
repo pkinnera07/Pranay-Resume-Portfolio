@@ -2,18 +2,23 @@
 <template>
   <div class="contacts">
     <a href="https://www.linkedin.com/in/pranay-kumar-kinnera" target="_blank">
+      <span class="contact">LinkedIn</span>
       <i class="fab fa-linkedin"></i>
     </a>
     <a href="https://github.com/pkinnera07" target="_blank">
+      <span class="contact">GitHub</span>
       <i class="fab fa-github"></i>
     </a>
     <a href="mailto:kpranaykumar0707@gmail.com">
+      <span class="contact">Email</span>
       <i class="fas fa-envelope"></i>
     </a>
     <a href="tel:+13128683526">
+      <span class="contact">Phone</span>
       <i class="fas fa-phone"></i>
     </a>
     <a href="/Resume-Pranay_Kumar_K.pdf" target="_blank">
+      <span class="contact">Resume</span>
       <i class="fa-solid fa-file-lines"></i>
     </a>
   </div>
@@ -33,6 +38,18 @@ export default {
   display: flex;
   justify-content: space-between;
 }
+.contact{
+  font-size: 15px;
+  color: black;
+  background-color: rgba(240, 248, 255, 0.386);
+  opacity: 0;
+  text-decoration: none;
+  transition: opacity 0.5s ease-in-out;
+  text-decoration: none;
+}
+.contacts a:hover .contact{
+  opacity: 1;
+}
 
 .contacts a {
   font-size: 30px; /* Icon size */
@@ -47,5 +64,20 @@ export default {
 
 .fab, .fas {
   display: inline-block;
+}
+
+/* Dark Theme */
+.app-container.dark .contact{
+  color: azure;
+  background-color: transparent;
+}
+.app-container.dark a{
+  color: azure;
+}
+
+@media (max-width: 768px) {
+  .contact{
+    display: none;
+  }
 }
 </style>

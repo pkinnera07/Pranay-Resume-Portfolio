@@ -15,8 +15,8 @@
         <div class="timeline-container">
           <div class="timeline"></div>
           <div class="timeline-info">
-            <p class="year">{{ StartYear1 }}</p>
             <p class="year">{{ EndYear1 }}</p>
+            <p class="year">{{ StartYear1 }}</p>
           </div>
         </div>
       </div>
@@ -34,8 +34,8 @@
         <div class="timeline-container">
           <div class="timeline"></div>
           <div class="timeline-info">
-            <p class="year">{{ StartYear2 }}</p>
             <p class="year">{{ EndYear2 }}</p>
+            <p class="year">{{ StartYear2 }}</p>
           </div>
         </div>
       </div>
@@ -48,7 +48,7 @@
       </div>
       <div class="certifications-list">
         <div v-for="(certification, index) in certifications" :key="index" class="certification-item">
-          <img :src="certification.icon" alt="Certificate Icon" class="certification-icon" />
+          <i class="fa-solid fa-certificate"></i>
           <span class="certification-name">{{ certification.name }}</span>
         </div>
       </div>
@@ -82,19 +82,15 @@ export default {
       certifications: [
         { 
           name: "JavaScript Algorithms and Data Structures", 
-          icon: require('@/assets/certificate-icon.png') 
         },
         { 
           name: "PCAP: Programming Essentials in Python", 
-          icon: require('@/assets/certificate-icon.png') 
         },
         { 
           name: "CCNAv7: Introduction to Networks", 
-          icon: require('@/assets/certificate-icon.png') 
         },
         { 
           name: "CCNAv7: Switching, Routing, and Wireless Essentials", 
-          icon: require('@/assets/certificate-icon.png') 
         }
       ]
     };
@@ -119,6 +115,8 @@ export default {
 .university-info:hover {
   transform: scale(1.01);
   transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
 }
 
 .university-info {
@@ -174,7 +172,7 @@ export default {
 .timeline {
   width: 2px;
   height: 90px;
-  background-color: rgba(3, 31, 58, 1);;
+  background-color: rgba(3, 31, 58, 1);
   margin-right: 15px;
 }
 
@@ -199,6 +197,13 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+
+.certifications-container:hover {
+  transform: scale(1.01);
+  transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
 .certifications-heading{
   background-color: rgba(3, 31, 58, 1);
   color: azure;
@@ -220,8 +225,7 @@ export default {
 }
 
 .certification-name {
-  margin-right: 10px;
-  font-weight: bold;
+  margin-left: 10px;
 }
 
 .certification-icon {
@@ -229,6 +233,28 @@ export default {
   height: 20px;
   margin-left: 10px;
 }
+/* dark theme */
+.app-container.dark .university-info, 
+.app-container.dark .certifications-container{
+  background-color: rgba(255, 255, 255, 0.215); /* Transparent white background */
+}
+.app-container.dark .university-name,
+.app-container.dark .degree,
+.app-container.dark .major,
+.app-container.dark .concentration,
+.app-container.dark .year,
+.app-container.dark .certification-item{
+  color: azure;
+}
+.app-container.dark .timeline{
+  background-color: azure;
+}
+
+.app-container.dark .certifications-heading{
+  background-color: azure;
+  color: black;
+}
+
 @media (max-width: 768px) {
   .university-name {
     font-size: 14px;

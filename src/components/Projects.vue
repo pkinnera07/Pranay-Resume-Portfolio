@@ -11,13 +11,13 @@
             {{ project.name }}
             <!-- GitHub Icon -->
             <a :href="project.github" target="_blank" class="github-link">
-              <img src="@/assets/github.png" alt="GitHub Icon" class="github-icon" />
+              <i class="fab fa-github"></i>
             </a>
             <!-- Status Icons and Text -->
             <div class="status-container">
               <img 
                 v-if="project.status === 'completed'" 
-                src="@/assets/completed-icon.png" 
+                src="@/assets/projects/completed-icon.png" 
                 alt="Completed Icon" 
                 class="status-icon completed"
                 title="completed"
@@ -26,14 +26,14 @@
               
               <img 
                 v-if="project.status === 'in-progress'" 
-                src="@/assets/in-progress-icon.png" 
+                src="@/assets/projects/in-progress-icon.png" 
                 alt="In Progress Icon" 
                 class="status-icon in-progress"
                 title="in-progress"
               />
               <span v-if="project.status === 'in-progress'" class="status-text">In Progress</span>
               <a v-if="project.live === 'live'" :href="project.website" target="_blank" class="github-link">
-                <img src="@/assets/sitelink.png" alt="Visit Site" class="github-icon" />
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>              
               </a>
             </div>
           </h3>
@@ -68,47 +68,48 @@
 </template>
 
 <script>
-import upArrow from '@/assets/upArrow.png';
-import downArrow from '@/assets/downArrow.png';
+import upArrow from '@/assets/projects/upArrow.png';
+import downArrow from '@/assets/projects/downArrow.png';
+import '@fortawesome/fontawesome-free/js/all.js';
 export default {
   data() {
     return {
       skillLogos: [
-        { src: require('@/assets/python.png'), alt: "Python", category: "Languages" },
-        { src: require('@/assets/java.png'), alt: "Java", category: "Languages" },
-        { src: require('@/assets/ruby.png'), alt: "Ruby", category: "Languages" },
-        { src: require('@/assets/c.png'), alt: "C", category: "Languages" },
-        { src: require('@/assets/c#.png'), alt: "C#", category: "Languages" },
-        { src: require('@/assets/embeddedc.png'), alt: "Embedded C", category: "Languages" },
+        { src: require('@/assets/skills/python.png'), alt: "Python", category: "Languages" },
+        { src: require('@/assets/skills/java.png'), alt: "Java", category: "Languages" },
+        { src: require('@/assets/skills/ruby.png'), alt: "Ruby", category: "Languages" },
+        { src: require('@/assets/skills/c.png'), alt: "C", category: "Languages" },
+        { src: require('@/assets/skills/c#.png'), alt: "C#", category: "Languages" },
+        { src: require('@/assets/skills/embeddedc.png'), alt: "Embedded C", category: "Languages" },
 
-        { src: require('@/assets/html.png'), alt: "HTML", category: "Frontend" },
-        { src: require('@/assets/css.png'), alt: "CSS", category: "Frontend" },
-        { src: require('@/assets/js.png'), alt: "JavaScript", category: "Frontend" },
-        { src: require('@/assets/vue.png'), alt: "Vue Js", category: "Frontend" },
-        { src: require('@/assets/react.png'), alt: "React", category: "Frontend" },
-        { src: require('@/assets/bootstrap.png'), alt: "Bootstrap", category: "Frontend" },
-        { src: require('@/assets/typescript.png'), alt: "TypeScript", category: "Frontend" },
-        { src: require('@/assets/tailwind.png'), alt: "Tailwind CSS", category: "Frontend" },
+        { src: require('@/assets/skills/html.png'), alt: "HTML", category: "Frontend" },
+        { src: require('@/assets/skills/css.png'), alt: "CSS", category: "Frontend" },
+        { src: require('@/assets/skills/js.png'), alt: "JavaScript", category: "Frontend" },
+        { src: require('@/assets/skills/vue.png'), alt: "Vue Js", category: "Frontend" },
+        { src: require('@/assets/skills/react.png'), alt: "React", category: "Frontend" },
+        { src: require('@/assets/skills/bootstrap.png'), alt: "Bootstrap", category: "Frontend" },
+        { src: require('@/assets/skills/typescript.png'), alt: "TypeScript", category: "Frontend" },
+        { src: require('@/assets/skills/tailwind.png'), alt: "Tailwind CSS", category: "Frontend" },
 
-        { src: require('@/assets/nodejs.png'), alt: "Node.js", category: "Backend" },
-        { src: require('@/assets/expressjs.png'), alt: "Express.js", category: "Backend" },
-        { src: require('@/assets/rails.png'), alt: "Ruby on Rails", category: "Backend" },
-        { src: require('@/assets/mongodb.png'), alt: "MongoDB", category: "Backend" },
-        { src: require('@/assets/mysql.png'), alt: "MySQL", category: "Backend" },
+        { src: require('@/assets/skills/nodejs.png'), alt: "Node.js", category: "Backend" },
+        { src: require('@/assets/skills/expressjs.png'), alt: "Express.js", category: "Backend" },
+        { src: require('@/assets/skills/rails.png'), alt: "Ruby on Rails", category: "Backend" },
+        { src: require('@/assets/skills/mongodb.png'), alt: "MongoDB", category: "Backend" },
+        { src: require('@/assets/skills/mysql.png'), alt: "MySQL", category: "Backend" },
 
-        { src: require('@/assets/docker.png'), alt: "Docker", category: "Tools" },
-        { src: require('@/assets/kubernetes.png'), alt: "Kubernetes ", category: "Tools" },
-        { src: require('@/assets/git.png'), alt: "Git", category: "Tools" },
-        { src: require('@/assets/github.png'), alt: "GitHub", category: "Tools" },
-        { src: require('@/assets/azure.png'), alt: "Azure", category: "Tools" },
-        { src: require('@/assets/selenium.png'), alt: "Selenium ", category: "Tools" },
-        { src: require('@/assets/simulink.png'), alt: "Simulink", category: "Tools" },
-        { src: require('@/assets/matlab.png'), alt: "Matlab", category: "Tools" },
+        { src: require('@/assets/skills/docker.png'), alt: "Docker", category: "Tools" },
+        { src: require('@/assets/skills/kubernetes.png'), alt: "Kubernetes ", category: "Tools" },
+        { src: require('@/assets/skills/git.png'), alt: "Git", category: "Tools" },
+        { src: require('@/assets/skills/github.png'), alt: "GitHub", category: "Tools" },
+        { src: require('@/assets/skills/azure.png'), alt: "Azure", category: "Tools" },
+        { src: require('@/assets/skills/selenium.png'), alt: "Selenium ", category: "Tools" },
+        { src: require('@/assets/skills/simulink.png'), alt: "Simulink", category: "Tools" },
+        { src: require('@/assets/skills/matlab.png'), alt: "Matlab", category: "Tools" },
       ],
       projects: [
         {
           name: 'Game Dimension',
-          image: require('@/assets/gameDimension.png'),
+          image: require('@/assets/projects/gameDimension.png'),
           github: 'https://github.com/pkinnera07/games-website',
           status: 'completed',
           live: 'live',
@@ -120,7 +121,7 @@ export default {
         },
         {
           name: 'Dairy Business Web Application',
-          image: require('@/assets/dairyProject.png'),
+          image: require('@/assets/projects/dairyProject.png'),
           github: 'https://github.com/username/project1',
           status: 'in-progress',
           skills: ['MySQL', 'Java', 'Bootstrap', 'HTML', 'CSS'],
@@ -131,7 +132,7 @@ export default {
         },
         {
           name: 'Personal Resume Webpage',
-          image: require('@/assets/portfolio.png'),
+          image: require('@/assets/projects/portfolio.png'),
           github: 'https://github.com/pkinnera07/Pranay-Resume-Portfolio',
           status: 'completed',
           skills: ['Vue Js', 'Azure', 'CSS'],
@@ -141,7 +142,7 @@ export default {
         },
         {
           name: 'Bank Transaction Management App',
-          image: require('@/assets/BankProject.png'),
+          image: require('@/assets/projects/BankProject.png'),
           github: 'https://github.com/pkinnera07/Bank-Transaction-Mgmt-App',
           status: 'completed',
           skills: ['Java', 'MySQL'],
@@ -151,7 +152,7 @@ export default {
         },
         {
           name: 'Net Banking Dashboard Design',
-          image: require('@/assets/netbanking.png'),
+          image: require('@/assets/projects/netbanking.png'),
           github: 'https://github.com/pkinnera07/NetBanking-Dashboard',
           status: 'completed',
           live: 'live',
@@ -162,7 +163,7 @@ export default {
         },
         {
           name: 'Link In Bio Page',
-          image: require('@/assets/linkinbio.png'),
+          image: require('@/assets/projects/linkinbio.png'),
           github: 'https://github.com/pkinnera07/link-in-bio',
           status: 'completed',
           live: 'live',
@@ -173,7 +174,7 @@ export default {
         },
         {
           name: 'EV Charging Point Monitoring',
-          image: require('@/assets/chargingStation.png'),
+          image: require('@/assets/projects/chargingStation.png'),
           github: 'https://github.com/username/project3',
           status: 'completed',
           skills: ['Embedded C', 'Simulink', 'HTML'],
@@ -233,6 +234,8 @@ export default {
 .project-block:hover{
   transform: scale(1.01);
   transition: 0.3s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
 }
 
 .expand-toggle {
@@ -333,12 +336,32 @@ export default {
 /* GitHub Link */
 .github-link {
   display: inline-block;
+  color: black;
 }
 
 .github-icon {
   width: 25px;
   height: 25px;
   margin-left: 10px;
+}
+
+
+/* Dark Theme */
+.app-container.dark .project-block {
+  background-color: rgba(255, 255, 255, 0.215); /* Transparent white background */
+}
+.app-container.dark .project-details-expanded {
+  color: azure;
+}
+.app-container.dark .project-title{
+  color: azure;
+}
+.app-container.dark .status-text{
+  color: azure;
+}
+
+.app-container.dark .github-link {
+  color: azure;
 }
 
 @media (max-width: 768px) {

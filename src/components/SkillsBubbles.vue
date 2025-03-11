@@ -29,39 +29,38 @@ export default {
   data() {
     return {
       skillLogos: [
-        { src: require('@/assets/python.png'), alt: "Python", category: "Languages" },
-        { src: require('@/assets/java.png'), alt: "Java", category: "Languages" },
-        { src: require('@/assets/ruby.png'), alt: "Ruby", category: "Languages" },
-        { src: require('@/assets/c.png'), alt: "C", category: "Languages" },
-        { src: require('@/assets/c#.png'), alt: "C#", category: "Languages" },
-        { src: require('@/assets/embeddedc.png'), alt: "Embedded C", category: "Languages" },
+          { src: require('@/assets/skills/python.png'), alt: "Python", category: "Languages" },
+          { src: require('@/assets/skills/java.png'), alt: "Java", category: "Languages" },
+          { src: require('@/assets/skills/ruby.png'), alt: "Ruby", category: "Languages" },
+          { src: require('@/assets/skills/c.png'), alt: "C", category: "Languages" },
+          { src: require('@/assets/skills/c#.png'), alt: "C#", category: "Languages" },
+          { src: require('@/assets/skills/embeddedc.png'), alt: "Embedded C", category: "Languages" },
 
-        //{ src: require('@/assets/html.png'), alt: "HTML", category: "Frontend" },
-        //{ src: require('@/assets/css.png'), alt: "CSS", category: "Frontend" },
-        { src: require('@/assets/js.png'), alt: "JavaScript", category: "Frontend" },
-        { src: require('@/assets/vue.png'), alt: "Vue Js", category: "Frontend" },
-        { src: require('@/assets/react.png'), alt: "React", category: "Frontend" },
-        { src: require('@/assets/bootstrap.png'), alt: "Bootstrap", category: "Frontend" },
-        { src: require('@/assets/typescript.png'), alt: "TypeScript", category: "Frontend" },
-        { src: require('@/assets/tailwind.png'), alt: "Tailwind CSS", category: "Frontend" },
+          // { src: require('@/assets/skills/html.png'), alt: "HTML", category: "Frontend" },
+          // { src: require('@/assets/skills/css.png'), alt: "CSS", category: "Frontend" },
+          { src: require('@/assets/skills/js.png'), alt: "JavaScript", category: "Frontend" },
+          { src: require('@/assets/skills/vue.png'), alt: "Vue Js", category: "Frontend" },
+          { src: require('@/assets/skills/react.png'), alt: "React", category: "Frontend" },
+          { src: require('@/assets/skills/bootstrap.png'), alt: "Bootstrap", category: "Frontend" },
+          { src: require('@/assets/skills/typescript.png'), alt: "TypeScript", category: "Frontend" },
+          { src: require('@/assets/skills/tailwind.png'), alt: "Tailwind CSS", category: "Frontend" },
 
-        { src: require('@/assets/nodejs.png'), alt: "Node.js", category: "Backend" },
-        { src: require('@/assets/expressjs.png'), alt: "Express.js", category: "Backend" },
-        //{ src: require('@/assets/rails.png'), alt: "Ruby on Rails", category: "Backend" },
-        { src: require('@/assets/mongodb.png'), alt: "MongoDB", category: "Backend" },
-        { src: require('@/assets/mysql.png'), alt: "MySQL", category: "Backend" },
+          { src: require('@/assets/skills/nodejs.png'), alt: "Node.js", category: "Backend" },
+          { src: require('@/assets/skills/expressjs.png'), alt: "Express.js", category: "Backend" },
+          // { src: require('@/assets/skills/rails.png'), alt: "Ruby on Rails", category: "Backend" },
+          { src: require('@/assets/skills/mongodb.png'), alt: "MongoDB", category: "Backend" },
+          { src: require('@/assets/skills/mysql.png'), alt: "MySQL", category: "Backend" },
 
-        { src: require('@/assets/docker.png'), alt: "Docker", category: "Tools" },
-        { src: require('@/assets/kubernetes.png'), alt: "Kubernetes ", category: "Tools" },
-        { src: require('@/assets/git.png'), alt: "Git", category: "Tools" },
-        //{ src: require('@/assets/github.png'), alt: "GitHub", category: "Tools" },
-        // { src: require('@/assets/azure.png'), alt: "Azure ", category: "Tools" },
-        { src: require('@/assets/selenium.png'), alt: "Selenium ", category: "Tools" },
-        // { src: require('@/assets/simulink.png'), alt: "Simulink", category: "Tools" },
-        // { src: require('@/assets/matlab.png'), alt: "Matlab", category: "Tools" },
+          { src: require('@/assets/skills/docker.png'), alt: "Docker", category: "Tools" },
+          { src: require('@/assets/skills/kubernetes.png'), alt: "Kubernetes", category: "Tools" },
+          { src: require('@/assets/skills/git.png'), alt: "Git", category: "Tools" },
+          // { src: require('@/assets/skills/github.png'), alt: "GitHub", category: "Tools" },
+          // { src: require('@/assets/skills/azure.png'), alt: "Azure", category: "Tools" },
+          { src: require('@/assets/skills/selenium.png'), alt: "Selenium", category: "Tools" },
+          // { src: require('@/assets/skills/simulink.png'), alt: "Simulink", category: "Tools" },
+          // { src: require('@/assets/skills/matlab.png'), alt: "Matlab", category: "Tools" },
+        ]
 
-
-      ]
     };
   }
 };

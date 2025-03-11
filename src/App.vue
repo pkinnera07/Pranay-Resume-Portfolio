@@ -20,6 +20,12 @@
       >Experience</button>
     </div>
 
+    <div class="toggle-container">
+      <span class="theme-text">Theme</span>
+      <button class="toggle"></button>
+    </div>
+    
+
     <!-- Main Content -->
     <main class="main-content">
       <!-- Profile Section -->
@@ -107,6 +113,7 @@ export default {
         });
       }
     },
+
     getComponentForSection(section) {
       switch (section) {
         case 'education':
@@ -146,17 +153,23 @@ export default {
 
   mounted() {
     this.setupIntersectionObserver();
+    document.getElementsByClassName('toggle')[0].addEventListener('click', function() {
+    const elements = document.querySelectorAll('.toggle, .app-container, .floating-options');
+    elements.forEach(element => {
+      element.classList.toggle('dark');
+    });
+});
   },
 };
 </script>
 
 <style scoped>
+
 /* Overall layout of the app */
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-image: url('@/assets/background1.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -164,7 +177,10 @@ export default {
   color: black;
   overflow-x: hidden;
   overflow-y: hidden;
+  transition: 1s;
+  background-image: url('@/assets/background1.jpg');
 }
+
 .arrow_container{
   visibility: hidden;
 }
@@ -173,6 +189,35 @@ export default {
 }
 .dropdown{
   display: none;
+}
+/* theme switch */
+.toggle {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    border-radius: 50px;
+    transition: 0.5s;
+    background: url(./assets/sun.png);
+    background-size: contain;
+}
+.theme-text{
+  opacity: 0;
+  position: fixed;
+  right: 75px;
+  top: 30px;
+}
+.toggle-container:hover .theme-text{
+  transition: 0.5s;
+  opacity: 1;
+  color: rgb(0, 27, 40);
+  font-size: 14px;
+  padding: 5px;
+}
+.toggle:hover{
+  background-color: transparent;
 }
 /* Floating options at the top */
 .floating-options {
@@ -283,13 +328,65 @@ h1 {
 
 /* Profile Picture */
 .profile-pic-container {
+  display: flex;
   height:200px;
+  width: 200px;
+  border-radius: 50%;
+  justify-content: center;
+  overflow: hidden;
+  border: 2px solid rgb(1, 23, 44);
+  box-shadow: -5px 5px 8px 2px rgba(0, 0, 0, 0.5);
+
 }
 
 .profile-pic {
   width: auto;
-  height: 200px;  
+  height: 203px;  
 }
+
+/* Dark Theme */
+.toggle.dark{
+    background: url(./assets/moon.png);
+    background-size: contain;
+    transform: rotate(360deg);
+}
+
+.app-container.dark{
+  background-image: url('@/assets/background-dark.png');
+}
+
+.floating-options.dark {
+  background-color: azure;
+}
+.floating-options.dark button {
+  color: rgba(3, 31, 58, 1);
+}
+
+.floating-options.dark button:hover {
+  color: azure;
+  background-color: rgb(0, 0, 0);
+}
+
+/* Active button styling */
+.floating-options.dark button.active {
+  background-color: rgb(0, 0, 0);
+  color: azure;
+  text-decoration: underline;
+}
+
+.app-container.dark .about-me,
+.app-container.dark .theme-text {
+  color: azure;
+}
+
+.app-container.dark  .name-text {
+  color: azure;
+}
+
+.app-container.dark .profile-pic-container{
+  border: 2px solid azure;
+}
+
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
@@ -314,8 +411,13 @@ h1 {
     text-decoration-thickness: 2px;
     color: azure;
     position: fixed;
-
   }
+
+  .toggle {
+    margin-top: 30px;
+    z-index: 20;
+  }
+
   .mobile-content{
     display: flex;
     flex-direction: column;
@@ -356,7 +458,15 @@ h1 {
     width: 51%;
     background: rgba(3, 31, 58, 1);
   }
-  
+  .app-container.dark
+  .chevron:before,
+  .app-container.dark
+  .chevron:after {
+    background: azure;
+  }
+  .app-container.dark .text {
+    color: azure;
+  }
   .chevron:before {
     left: 0;
     transform: skew(0deg, 30deg);
