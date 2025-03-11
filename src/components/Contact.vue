@@ -43,9 +43,9 @@ export default {
   color: black;
   background-color: rgba(240, 248, 255, 0.386);
   opacity: 0;
-  text-decoration: none;
+  position: absolute;
+  margin-top: 35px;
   transition: opacity 0.5s ease-in-out;
-  text-decoration: none;
 }
 .contacts a:hover .contact{
   opacity: 1;
