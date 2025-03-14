@@ -30,7 +30,7 @@
     <main class="main-content">
       <!-- Profile Section -->
       <div class="profile-section">
-        <div class="profile-pic-container">
+        <div class="profile-pic-container tilt " v-tilt>
           <img src="@/assets/profile.png" alt="Profile Picture" class="profile-pic" />
         </div>
         <div class="profile-info">
@@ -164,7 +164,6 @@ export default {
 </script>
 
 <style scoped>
-
 /* Overall layout of the app */
 .app-container {
   display: flex;
@@ -193,10 +192,10 @@ export default {
 /* theme switch */
 .toggle {
     position: fixed;
-    right: 20px;
-    top: 20px;
-    height: 50px;
-    width: 50px;
+    right: 10px;
+    top: 10px;
+    height: 40px;
+    width: 40px;
     padding: 5px;
     border-radius: 50px;
     transition: 0.5s;
@@ -206,11 +205,11 @@ export default {
 .theme-text{
   opacity: 0;
   position: fixed;
-  right: 75px;
-  top: 30px;
+  right: 60px;
+  top: 20px;
 }
 .toggle-container:hover .theme-text{
-  transition: 0.5s;
+  transition: 0.3s;
   opacity: 1;
   color: rgb(0, 27, 40);
   font-size: 14px;
@@ -230,10 +229,11 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   z-index: 15;
-  background-color: rgba(3, 31, 58, 1);
+  background-color: #031f3a;
   padding: 10px 10px;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 50px;
+  transition: 0.5s ease;
 }
 
 button {
@@ -244,6 +244,7 @@ button {
   background-color: transparent;
   text-decoration-thickness: 2px;
   color: azure;
+  transition: 0.5s ease;
   border: none;
 }
 
@@ -336,7 +337,7 @@ h1 {
   overflow: hidden;
   border: 2px solid rgb(1, 23, 44);
   box-shadow: -5px 5px 8px 2px rgba(0, 0, 0, 0.5);
-
+  margin-top: 5px;
 }
 
 .profile-pic {
@@ -387,6 +388,12 @@ h1 {
   border: 2px solid azure;
 }
 
+/* tilt effect */
+.tilt {
+  perspective: 1500px; /* Adds a 3D perspective effect */
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-in-out;
+}
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
@@ -416,6 +423,11 @@ h1 {
   .toggle {
     margin-top: 30px;
     z-index: 20;
+    top: auto;
+    right: 20px;
+    bottom: 20px;
+    height: 30px;
+    width: 30px;
   }
 
   .mobile-content{
@@ -458,6 +470,7 @@ h1 {
     width: 51%;
     background: rgba(3, 31, 58, 1);
   }
+  
   .app-container.dark
   .chevron:before,
   .app-container.dark

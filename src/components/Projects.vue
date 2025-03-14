@@ -364,6 +364,12 @@ export default {
   color: azure;
 }
 
+.tilt {
+  perspective: 1500px; /* Adds a 3D perspective effect */
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-in-out;
+}
+
 @media (max-width: 768px) {
   .projects-container {
     width:100%;
@@ -378,6 +384,10 @@ export default {
     background-color: rgba(255, 255, 255, 0.4); /* Transparent white background */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .logo {
+    height: 60px;
+    width: 60px;
   }
   .project-info {
     display: flex;

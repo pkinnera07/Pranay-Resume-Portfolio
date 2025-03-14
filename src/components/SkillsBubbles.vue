@@ -10,7 +10,7 @@
         <!-- Skill name appears above the icon on hover -->
         <span class="skill-name">{{ skill.alt }}</span>
         
-        <div class="rounded">
+        <div class="rounded tilt" v-tilt>
           <img :src="skill.src" :alt="skill.alt" class="skill-icon" />
         </div>
       </article>
@@ -75,6 +75,12 @@ export default {
 
 body {
   background: darkslategrey;
+}
+
+.tilt {
+  perspective: 1500px; /* Adds a 3D perspective effect */
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-in-out;
 }
 
 /* Wrapper */
@@ -183,7 +189,9 @@ body {
 .badge-Backend, .backend {
   background: #fffb024c;
 }
-
+.app-container.dark .skill-name{
+  color: azure;
+}
 @media (max-width: 768px) {
   .wrapper {
     width: 100%;
@@ -217,6 +225,7 @@ body {
   .badge {
     width: 60px;
     height: 60px;
+    margin-inline: 10px;
   }
   .rounded {
     width: 50px;

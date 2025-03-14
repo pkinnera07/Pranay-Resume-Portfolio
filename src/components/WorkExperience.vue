@@ -199,6 +199,12 @@ h2 {
 .app-container.dark .timeline{
   background-color: azure;
 }
+
+.tilt {
+  perspective: 1500px; /* Adds a 3D perspective effect */
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-in-out;
+}
 @media (max-width: 768px) {
 
   .year {

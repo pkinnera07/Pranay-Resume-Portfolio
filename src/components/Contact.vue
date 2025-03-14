@@ -54,7 +54,7 @@ export default {
 .contacts a {
   font-size: 30px; /* Icon size */
   margin: 0 15px; /* Spacing between icons */
-  color: rgba(3, 31, 58, 0.8); /* Icon color */
+  color: rgb(0, 22, 43); /* Icon color */
   transition: color 0.3s ease;
 }
 
