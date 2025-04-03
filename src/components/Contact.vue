@@ -17,7 +17,7 @@
       <span class="contact">Phone</span>
       <i class="fas fa-phone"></i>
     </a>
-    <a href="/Resume-Pranay_Kumar_K.pdf" target="_blank">
+    <a href="/Pranay_Kumar_K_Resume.pdf" target="_blank">
       <span class="contact">Resume</span>
       <i class="fa-solid fa-file-lines"></i>
     </a>
