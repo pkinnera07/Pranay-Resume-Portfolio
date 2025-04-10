@@ -47,16 +47,19 @@ export default {
 
           { src: require('@/assets/skills/nodejs.png'), alt: "Node.js", category: "Backend" },
           { src: require('@/assets/skills/expressjs.png'), alt: "Express.js", category: "Backend" },
-          // { src: require('@/assets/skills/rails.png'), alt: "Ruby on Rails", category: "Backend" },
+          { src: require('@/assets/skills/rails.png'), alt: "Ruby on Rails", category: "Backend" },
           { src: require('@/assets/skills/mongodb.png'), alt: "MongoDB", category: "Backend" },
           { src: require('@/assets/skills/mysql.png'), alt: "MySQL", category: "Backend" },
-
+          { src: require('@/assets/skills/graphql.png'), alt: "GraphQL", category: "Backend" },
+          { src: require('@/assets/skills/springboot.png'), alt: "SpringBoot", category: "Backend" },
+          { src: require('@/assets/skills/postgresql.png'), alt: "PostgreSQL", category: "Backend" },
+    
           { src: require('@/assets/skills/docker.png'), alt: "Docker", category: "Tools" },
           { src: require('@/assets/skills/kubernetes.png'), alt: "Kubernetes", category: "Tools" },
           { src: require('@/assets/skills/git.png'), alt: "Git", category: "Tools" },
           // { src: require('@/assets/skills/github.png'), alt: "GitHub", category: "Tools" },
-          // { src: require('@/assets/skills/azure.png'), alt: "Azure", category: "Tools" },
-          { src: require('@/assets/skills/selenium.png'), alt: "Selenium", category: "Tools" },
+          { src: require('@/assets/skills/azure.png'), alt: "Azure", category: "Tools" },
+          //{ src: require('@/assets/skills/selenium.png'), alt: "Selenium", category: "Tools" },
           // { src: require('@/assets/skills/simulink.png'), alt: "Simulink", category: "Tools" },
           // { src: require('@/assets/skills/matlab.png'), alt: "Matlab", category: "Tools" },
         ]
@@ -149,7 +152,7 @@ body {
 /* Badge Layout */
 .badge-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 icons per row */
+  grid-template-columns: repeat(6, 1fr); /* 5 icons per row */
   gap: 5px;
   margin-inline: auto;
   align-self: center;

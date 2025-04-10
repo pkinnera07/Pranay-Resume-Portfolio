@@ -10,7 +10,7 @@
           <h3 class="project-title">
             {{ project.name }}
             <!-- GitHub Icon -->
-            <a :href="project.github" target="_blank" class="github-link">
+            <a v-if="project.github" :href="project.github" target="_blank" class="github-link">
               <i class="fab fa-github"></i>
             </a>
             <!-- Status Icons and Text -->
@@ -96,6 +96,10 @@ export default {
         { src: require('@/assets/skills/rails.png'), alt: "Ruby on Rails", category: "Backend" },
         { src: require('@/assets/skills/mongodb.png'), alt: "MongoDB", category: "Backend" },
         { src: require('@/assets/skills/mysql.png'), alt: "MySQL", category: "Backend" },
+        // { src: require('@/assets/skills/postgresql.png'), alt: "PostgreSQL", category: "Backend" },
+        { src: require('@/assets/skills/graphql.png'), alt: "GraphQL", category: "Backend" },
+        { src: require('@/assets/skills/springboot.png'), alt: "SpringBoot", category: "Backend" },
+
 
         { src: require('@/assets/skills/docker.png'), alt: "Docker", category: "Tools" },
         { src: require('@/assets/skills/kubernetes.png'), alt: "Kubernetes ", category: "Tools" },
@@ -107,6 +111,16 @@ export default {
         { src: require('@/assets/skills/matlab.png'), alt: "Matlab", category: "Tools" },
       ],
       projects: [
+        {
+          name: 'IgnitED',
+          image: require('@/assets/projects/olp.png'),
+          status: 'completed',
+          website: 'https://game-dimension.netlify.app/',
+          skills: ['React', 'Node.js', 'Express.js', 'MongoDB', 'GraphQL'],
+          showDetails: false,
+          details:["Built an online learning platform with React.js, achieving a 20% improvement in page load times by utilizing React Router for efficient navigation and dynamic component rendering. Designed reusable, modern UI elements styled for intuitive UX.", 
+                   "Constructed backend with Node.js and Express.js, fabricating REST and GraphQL APIs, MongoDB for data storage, and Gmail SMTP for email notifications. Crafted a custom Course Recommendations API, increasing suggestion accuracy by 30%."]
+        },
         {
           name: 'Game Dimension',
           image: require('@/assets/projects/gameDimension.png'),

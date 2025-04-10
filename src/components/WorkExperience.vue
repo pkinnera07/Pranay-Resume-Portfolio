@@ -38,40 +38,36 @@ export default {
           endDate: "Jul 2023",
           logo: require('@/assets/lti.png'), // Example logo for the job
           responsibilities: [
-            "Collaborated with cross-functional teams to lead the development of a critical insurance domain project for a prominent US-based insurance company.",
-            "Developed a proof of concept showcasing a 20% increase in automation efficiency by implementing TypeScript and Playwright, enhancing automation workflows as alternatives to C# and Selenium.",
-            "Debugged and optimized a complex automation framework based on the Singleton pattern, improving the overall reliability and resilience of the project’s core infrastructure.",
-            "Actively contributed to the adoption of Agile Scrum methodologies, streamlining development cycles and enhancing team collaboration for more responsive and iterative software delivery.",
-            "Led the organization of weekly project updates, gathering input from a diverse team of 36 members, and delivering concise technical summaries during Scrum meetings to ensure alignment across stakeholders.",
-            "Played a key role in developing detailed functional mapping documents, ensuring accurate and comprehensive specifications for software development and system integration."
+            "Engineered end-to-end scalable web applications in an insurance domain project, leveraging React, Node.js, and Express, cutting down re-renders by 30% through efficient Redux state management.",
+            "Designed and deployed microservices with Node.js and Docker, enhancing system scalability by 40%, improving fault tolerance, and upgrading RESTful APIs and GraphQL endpoints to facilitate 30,000+ concurrent users.",
+            "Boosted database query performance by 50% with PostgreSQL optimizations, advanced SQL techniques, and Redis caching, decreasing response times and enabling efficient real-time data processing.",
+            "Streamlined the CI/CD pipeline through Jenkins and GitHub Actions, cutting deployment cycles by 60% and created a TypeScript-based PoC with Playwright to automate web testing, simplifying QA efforts by 40%."
           ]
         },
         {
           title: "Graduate Engineer Intern",
           company: "LTIMindtree Ltd.",
-          location: "Hyderabad, India",
+          location: "Remote",
           startDate: "Jul 2022",
           endDate: "Oct 2022",
           logo: require('@/assets/lti.png'),
           responsibilities: [
-            "Honed advanced skills in data warehousing, ETL processes, and DBMS, optimizing data integration and management to enhance decision-making capabilities.",
-            "Implemented three types of Slowly Changing Dimensions (SCDs) to ensure data integrity and optimize querying efficiency, supporting accurate historical data analysis.",
-            "Independently designed and created three databases utilizing both Star and Snowflake schema models, ensuring scalability and performance for complex data warehousing solutions.",
-            "Leveraged Selenium to automate operations across 10+ websites, streamlining processes like account creation, form validation, logins, e-commerce orders, and travel bookings (buses, hotels, movies).",
-            "Gained comprehensive expertise in various Agile methodologies, including Scrum, Kanban, XP (Extreme Programming), Lean, and Crystal, to foster adaptable and efficient project workflows."
+            "Assisted in the development of server-side rendered (SSR) and static web applications with Next.js and React, achieving a 25% reduction in page load times and improving SEO, while escalating UX through dynamic routing and pre-rendering.",
+            "Collaborated on backend development with Node.js/Express, implementing RESTful APIs, deploying MongoDB for data storage, and incorporating JWT-based user authentication, supporting 500+ active users with robust security and scalability.",
+            "Leveraged Docker for containerization, optimizing deployment processes and simplifying error rates by 20% through building middleware to manage API requests."
           ]
         },
         {
           title: "Programmer Analyst Intern",
           company: "Cognizant Technology Solutions",
-          location: "Hyderabad, India",
+          location: "Remote",
           startDate: "Mar 2022",
           endDate: "Jul 2022",
           logo: require('@/assets/cognizant.png'),
           responsibilities: [
-            "Received hands-on training in Java-based web applications using JDBC, gaining practical experience in database connectivity, Java development, and web application integration.",
-            "Developed strong SQL querying skills, optimizing data retrieval and manipulation from relational databases to ensure efficiency and accuracy in data operations.",
-            "Gained a thorough understanding of various Software Development Life Cycle (SDLC) models, applying structured and efficient methodologies to enhance software development processes."
+            "Teamed with senior developers to hone RESTful APIs using Java and Spring Boot, decreasing response times by 30% through database integration with PostgreSQL and JDBC.",
+            "Refined query performance by 25% through advanced SQL queries and Spring Data JPA, reducing database load and enhancing application speed.",
+            "Enforced security protocols by incorporating Spring Security for user authentication and authorization, ensuring secure access for over 1,000+ users across multiple services."
           ]
         }
       ]
