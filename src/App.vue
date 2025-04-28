@@ -38,7 +38,7 @@
             <span class="hi-text">Hi!</span> 
             <span class="name-text">I'm Pranay</span>
           </h1>
-          <p class="about-me">I’m a curious full-stack developer with over 4 years of experience in software development. I love solving challenges and building impactful, user-driven applications that make a difference!</p>
+          <p class="about-me">I'm a Creative Full-Stack Developer with 3+ years of experience building scalable web applications using React, Node.js, Spring Boot, and cloud technologies. Love designing intuitive, user-friendly digital experiences. Passionate about solving real-world problems with clean code and innovative solutions</p>
         </div>
         <contact></contact>
       </div>
@@ -165,6 +165,7 @@ export default {
 
 <style scoped>
 /* Overall layout of the app */
+
 .app-container {
   display: flex;
   flex-direction: column;
@@ -174,14 +175,13 @@ export default {
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: black;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   transition: 1s;
   background-image: url('@/assets/background1.jpg');
 }
 
 .arrow_container{
-  visibility: hidden;
+  display: none;
 }
 .mobile-content{
   display: none;
@@ -269,6 +269,7 @@ button.active {
   flex-direction: row; /* Default layout with horizontal rows */
   width: 100%;
   height: 100%;
+  scrollbar-color: rgba(3, 31, 58, 1) transparent; /* For Firefox */
   box-sizing: border-box;
   justify-content: space-between; /* Distribute space between profile and content */
 }
@@ -311,7 +312,7 @@ h1 {
 
 .about-me {
   margin-top: 0px;
-  font-size:19px;
+  font-size:16px;
   color: #333;
 }
 
@@ -380,6 +381,9 @@ h1 {
   color: azure;
 }
 
+.app-container.dark .main-content {
+  scrollbar-color: azure transparent; /* For Firefox */
+}
 .app-container.dark  .name-text {
   color: azure;
 }
@@ -446,7 +450,7 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
   }
   .arrow_container{
-    visibility:visible;
+    display: block;
     position: relative;
     width: 24px;
     height: 24px;

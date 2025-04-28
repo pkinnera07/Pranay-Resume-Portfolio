@@ -114,12 +114,15 @@ export default {
         {
           name: 'IgnitED',
           image: require('@/assets/projects/olp.png'),
+          github: 'https://github.com/pkinnera07/IgnitED',
           status: 'completed',
-          website: 'https://game-dimension.netlify.app/',
+          live: 'live',
+          website: 'https://ignit-ed.vercel.app/',
           skills: ['React', 'Node.js', 'Express.js', 'MongoDB', 'GraphQL'],
           showDetails: false,
           details:["Built an online learning platform with React.js, achieving a 20% improvement in page load times by utilizing React Router for efficient navigation and dynamic component rendering. Designed reusable, modern UI elements styled for intuitive UX.", 
-                   "Constructed backend with Node.js and Express.js, fabricating REST and GraphQL APIs, MongoDB for data storage, and Gmail SMTP for email notifications. Crafted a custom Course Recommendations API, increasing suggestion accuracy by 30%."]
+                   "Constructed backend with Node.js and Express.js, fabricating REST and GraphQL APIs, MongoDB for data storage, and Gmail SMTP for email notifications. Integrated Redis for caching and temporary data storage.",
+                  "Crafted a custom Course Recommendations API, increasing suggestion accuracy by 30%."]
         },
         {
           name: 'Game Dimension',
