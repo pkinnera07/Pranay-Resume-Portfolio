@@ -137,17 +137,6 @@ export default {
                    "Implemented dynamic routing, React hooks, custom components, and responsive design to enhance usability and performance."]
         },
         {
-          name: 'Dairy Business Web Application',
-          image: require('@/assets/projects/dairyProject.png'),
-          github: 'https://github.com/username/project1',
-          status: 'in-progress',
-          skills: ['MySQL', 'Java', 'Bootstrap', 'HTML', 'CSS'],
-          showDetails: false,
-          details:["Designing and developing a comprehensive Dairy Business Web application using Java EE and JSF, incorporating reusable templates and composite components to ensure maintainability and code reusability.", 
-                   "Implemented robust admin functionality for user creation and role assignment, including secure management of user roles and entity operations based on assigned permissions.", 
-                   "Crafting intuitive navigation, comprehensive validation, and Bootstrap-enhanced styling to ensure a user-friendly and visually appealing interface."]
-        },
-        {
           name: 'Personal Resume Webpage',
           image: require('@/assets/projects/portfolio.png'),
           github: 'https://github.com/pkinnera07/Pranay-Resume-Portfolio',

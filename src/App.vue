@@ -38,7 +38,7 @@
             <span class="hi-text">Hi!</span> 
             <span class="name-text">I'm Pranay</span>
           </h1>
-          <p class="about-me">I'm a Creative Full-Stack Developer with 3+ years of experience building scalable web applications using React, Node.js, Spring Boot, and cloud technologies. Love designing intuitive, user-friendly digital experiences. Passionate about solving real-world problems with clean code and innovative solutions</p>
+          <p class="about-me">I'm a Creative Full-Stack Developer with 3+ years of experience building scalable web applications using React, Node.js, and cloud technologies. Love designing intuitive, user-friendly digital experiences. Passionate about solving real-world problems with clean code and innovative solutions</p>
         </div>
         <contact></contact>
       </div>

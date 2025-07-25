@@ -1,7 +1,7 @@
 <!-- ContactComponent.vue -->
 <template>
   <div class="contacts">
-    <a href="https://www.linkedin.com/in/pranay-kumar-kinnera" target="_blank">
+    <a href="https://www.linkedin.com/in/pranay-kk0707" target="_blank">
       <span class="contact">LinkedIn</span>
       <i class="fab fa-linkedin"></i>
     </a>
@@ -9,7 +9,7 @@
       <span class="contact">GitHub</span>
       <i class="fab fa-github"></i>
     </a>
-    <a href="mailto:kpranaykumar0707@gmail.com">
+    <a href="mailto:pranaykumark07072@gmail.com">
       <span class="contact">Email</span>
       <i class="fas fa-envelope"></i>
     </a>

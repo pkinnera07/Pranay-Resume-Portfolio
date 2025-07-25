@@ -51,7 +51,7 @@ export default {
           { src: require('@/assets/skills/mongodb.png'), alt: "MongoDB", category: "Backend" },
           { src: require('@/assets/skills/mysql.png'), alt: "MySQL", category: "Backend" },
           { src: require('@/assets/skills/graphql.png'), alt: "GraphQL", category: "Backend" },
-          { src: require('@/assets/skills/springboot.png'), alt: "SpringBoot", category: "Backend" },
+          { src: require('@/assets/skills/stripe.png'), alt: "Stripe", category: "Backend" },
           { src: require('@/assets/skills/postgresql.png'), alt: "PostgreSQL", category: "Backend" },
     
           { src: require('@/assets/skills/docker.png'), alt: "Docker", category: "Tools" },

@@ -47,7 +47,7 @@ export default {
         {
           title: "Graduate Engineer Intern",
           company: "LTIMindtree Ltd.",
-          location: "Remote",
+          location: "Hyderabad, India",
           startDate: "Jul 2022",
           endDate: "Oct 2022",
           logo: require('@/assets/lti.png'),
@@ -60,7 +60,7 @@ export default {
         {
           title: "Programmer Analyst Intern",
           company: "Cognizant Technology Solutions",
-          location: "Remote",
+          location: "Hyderabad, India",
           startDate: "Mar 2022",
           endDate: "Jul 2022",
           logo: require('@/assets/cognizant.png'),
